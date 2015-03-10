@@ -1,3 +1,18 @@
+/*header and footer*/
+
+.mainlogo {
+	height: 80px;
+	width: auto;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+}
+
+#mainlogotop {
+	margin-top: 30px;
+}
+
+/*Page 1 classes*/
 .bruker {
 	font-size: 18px;
 	font-family: Verdana;
@@ -21,19 +36,7 @@
 	font-size: 18px;
 	font-family: Verdana;
 }
-
-.mainlogo {
-	height: 80px;
-	width: auto;
-	margin-right: auto;
-	margin-left: auto;
-	display: block;
-}
-
-#mainlogotop {
-	margin-top: 30px;
-}
-
+/*Page 1 id's*/
 #footerpic {
 	margin-left: auto;
 	margin-right: auto;
@@ -52,7 +55,6 @@
 	width: 422px;
 	margin-left: -220px;
 	background-color: transparent;
-
 }
 
 #innloggingsform {
@@ -75,11 +77,25 @@
 	text-align: right;
 }
 
-#page1bot{
-	margin-top: 300px;
-}
-
 #submit:hover {
 	background-color: #101010;
 	color: white;
+}
+
+#page1bot{
+	margin-top: 280px;
+}
+
+/*Page 2 classes*/
+
+/*Page 2 id's*/
+#outerbox {
+	margin-left: 50%;
+}
+
+#mainbox {
+	height: 270px;
+	width: 500px;
+	margin-top: 160px;
+	margin-left: -250px;
 }
