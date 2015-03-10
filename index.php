@@ -12,35 +12,34 @@ ob_start();
 </head>
 <body>
 	<h3>
-		Logg inn på adminbruker
+		Logg inn for å reservere
 	</h3>
 	<form action="" method="post" name="form">
-		Brukernavn:
-		<br><input type="text" name="email" required title="Skriv inn e-post!"><br>
+		E-post:
+		<br><input type="email" name="email" required title="Skriv inn e-post!"><br>
 		Passord:
 		<br><input type="password" name="password" required title="Skriv inn passord!">
+		
 		<br><input type="submit" value="Logg inn" name="logginn">
 	</form>
 
 	<?php
 	if(isset($_POST['logginn'])) {
-		$_SESSION["loggetinn"]=false;
+		$_SESSION['auth_token'] = false;
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		$db = new mysqli("localhost", "root", "root", "pj2100");  
+		$db = new mysqli("localhost", "root", "root", "pj2100");
+		//$db = new mysqli("localhost", "root", "", "pj2100");   
+		//$sql = $db->prepare("SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')");
 		$sql = "SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')"; 
 		$resultat = $db->query($sql); 
-		if ($db->affected_rows > 0) 
-		{
-			$_SESSION["loggetinn"]=true;
+		if ($db->affected_rows > 0) {
+			$_SESSION['auth_token']=true;
 			echo "Passordet er korrekt!";
 			header("Location: reserve.php");
 			ob_flush();
-
-		} 
-		else 
-		{ 
-			echo "<strong>Feil brukernavn eller passord!</strong>"; 
+		} else { 
+			echo "<strong>Feil e-post eller passord!</strong>"; 
 		}
 	}	
 

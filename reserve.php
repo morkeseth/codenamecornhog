@@ -2,13 +2,9 @@
 session_start();
 ob_start();
 
-if($_SESSION["loggetinn"])
-{
+if($_SESSION['auth_token']) {
 	echo "";
-}
-else
-{
-	echo "Du er ikke logget inn.";
+} else {
 	header("Location:index.php");
 	ob_flush();
 }
