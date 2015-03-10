@@ -1,3 +1,8 @@
+.bruker {
+	font-size: 18px;
+	font-family: Verdana;
+} 
+
 .innloggingsliste {
 	list-style: none;
 }
@@ -10,6 +15,11 @@
 	width: 377px;
 	height: 46px;
 	border: solid 3px #010101;
+	background-color: transparent;
+}
+.brukerinput[type="text"] {
+	font-size: 18px;
+	font-family: Verdana;
 }
 
 .mainlogo {
@@ -39,11 +49,37 @@
 }
 
 #innloggingwrapper {
-	width: 0px;
-	margin: 0 auto;
+	width: 422px;
+	margin-left: -220px;
+	background-color: transparent;
 
 }
+
+#innloggingsform {
+	margin-left: 50%;
+	margin-top: 100px;
+}
+
 #submit {
-	margin-top: 3px;
+	margin-top: 20px;
+	background-color: transparent;
+	box-shadow: 0 0 0 transparent;
+	height: 46px;
+	width: 120px;
+	border: solid 3px black;
+	font-size: 18px;
+	font-family: Verdana;
+	-webkit-transition: 0.5s;
+}
+#submitdiv {
+	text-align: right;
 }
 
+#page1bot{
+	margin-top: 300px;
+}
+
+#submit:hover {
+	background-color: #101010;
+	color: white;
+}
