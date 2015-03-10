@@ -1,3 +1,8 @@
+<?php
+session_start();
+ob_start();
+?>
+
 <?php require_once 'header.php';?>
 <img src="../images/textlogo.png" id="textlogo">
 
@@ -24,6 +29,28 @@
 		</ul>
 	</div>
 </form>
+
+<?php
+	if(isset($_POST['logginn'])) {
+		$_SESSION['auth_token'] = false;
+		$email = $_POST['email'];
+		$password = $_POST['password'];
+		$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
+		$sql = $db -> prepare ("SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')");
+		$sql->setFetchMode(PDO::FETCH_OBJ);
+		$sql -> execute();
+		$resultat = $sql; 
+		if ($sql->rowCount() > 0) {
+			$_SESSION['auth_token']=true;
+			echo "Passordet er korrekt!";
+			header("Location: reserve.php");
+			ob_flush();
+		} else { 
+			echo "<strong>Feil e-post eller passord!</strong>"; 
+		}
+	}	
+
+	?>
 
 <div id="page1bot"><div> 
 <?php require_once 'footer.php';?>
