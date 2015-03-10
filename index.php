@@ -29,6 +29,7 @@ ob_start();
 		$email = $_POST['email'];
 		$password = $_POST['password'];
 		$db = new mysqli("localhost", "root", "root", "pj2100");
+		$_SESSION"email" = "$email";
 		//$db = new mysqli("localhost", "root", "", "pj2100");   
 		//$sql = $db->prepare("SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')");
 		$sql = "SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')"; 
