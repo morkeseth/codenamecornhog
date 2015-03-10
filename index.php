@@ -28,12 +28,12 @@ ob_start();
 		$_SESSION['auth_token'] = false;
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		$db = new mysqli("localhost", "root", "root", "pj2100");
-		//$db = new mysqli("localhost", "root", "", "pj2100");   
-		//$sql = $db->prepare("SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')");
-		$sql = "SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')"; 
-		$resultat = $db->query($sql); 
-		if ($db->affected_rows > 0) {
+		$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
+		$sql = $db -> prepare ("SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')");
+		$sql->setFetchMode(PDO::FETCH_OBJ);
+		$sql -> execute();
+		$resultat = $sql; 
+		if ($sql->rowCount() > 0) {
 			$_SESSION['auth_token']=true;
 			echo "Passordet er korrekt!";
 			header("Location: reserve.php");
