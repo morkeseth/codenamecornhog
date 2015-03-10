@@ -1,9 +1,49 @@
+.innloggingsliste {
+	list-style: none;
+}
 
+.brukerdiv {
+	display: block;
+}
 
-#mainlogo {
+.brukerinput {
+	width: 377px;
+	height: 46px;
+	border: solid 3px #010101;
+}
+
+.mainlogo {
 	height: 80px;
 	width: auto;
 	margin-right: auto;
 	margin-left: auto;
 	display: block;
 }
+
+#mainlogotop {
+	margin-top: 30px;
+}
+
+#footerpic {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+#textlogo {
+	height: 80px;
+	width: auto;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+}
+
+#innloggingwrapper {
+	width: 0px;
+	margin: 0 auto;
+
+}
+#submit {
+	margin-top: 3px;
+}
+
