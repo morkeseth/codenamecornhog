@@ -10,7 +10,7 @@ ob_start();
 	<div id="innloggingwrapper">
 		<ul>	
 			<li class="innloggingsliste">
-				<p class="bruker">Brukernavn*</p>
+				<p class="bruker">E-postadresse*</p>
 				<div class="brukerdiv">
 					<input class="brukerinput" type="email" name="email" required title="Skriv inn e-post!">
 				</div>
