@@ -31,7 +31,6 @@ ob_start();
 		$db = new mysqli("localhost", "root", "root", "pj2100");
 		//$db = new mysqli("localhost", "root", "", "pj2100");   
 		//$sql = $db->prepare("SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')");
-		$db = new mysqli("localhost", "root", "", "pj2100");  
 		$sql = "SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')"; 
 		$resultat = $db->query($sql); 
 		if ($db->affected_rows > 0) {
