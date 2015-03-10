@@ -8,6 +8,6 @@
 
 	<body>
 		<header>
-			<img class="mainlogo" id="mainlogotop" src ="../images/mainlogo.jpg">
+			<img class="mainlogo" id="mainlogotop" src ="../images/mainlogo.png">
 		</header>
 

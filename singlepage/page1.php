@@ -1,5 +1,5 @@
 <?php require_once 'header.php';?>
-<img src="../images/textlogo.jpg" id="textlogo">
+<img src="../images/textlogo.png" id="textlogo">
 
 <div id="innloggingwrapper">
 	<ul>	

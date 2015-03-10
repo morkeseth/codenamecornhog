@@ -1,6 +1,6 @@
 		<footer>
-			<img id="footerpic" src ="../images/footer.jpg">
-			<img class="mainlogo" src ="../images/mainlogo.jpg">
+			<img id="footerpic" src ="../images/footer.png">
+			<img class="mainlogo" src ="../images/mainlogo.png">
 		</footer>
 
 
