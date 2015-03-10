@@ -27,7 +27,7 @@ ob_start();
 		$_SESSION["loggetinn"]=false;
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		$db = new mysqli("localhost", "root", "root", "pj2100");  
+		$db = new mysqli("localhost", "root", "", "pj2100");  
 		$sql = "SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')"; 
 		$resultat = $db->query($sql); 
 		if ($db->affected_rows > 0) 
