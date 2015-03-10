@@ -1,17 +1,9 @@
 <?php
+$db = new PDO("localhost", "root", "root", "pj2100");
 
-class DB {
-	
-	$db = null;
-	$username = "root";
-	$password = "";
-	$host = "localhost";
-	$database = "eksamen";
-
-	function __construct {
-		$this->db = new PDO("mysql:host=$this->host;dbname=$this->database;charset=utf8", $this->username, $this->password)
-	}
+if(!$db) {
+    echo "Feil på tilkobling.";
+} else {
 
 }
-
 ?>
