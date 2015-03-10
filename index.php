@@ -12,7 +12,7 @@ ob_start();
 			<li class="innloggingsliste">
 				<p class="bruker">Brukernavn*</p>
 				<div class="brukerdiv">
-					<input class="brukerinput" type="text" name="email" required title="Skriv inn e-post!">
+					<input class="brukerinput" type="email" name="email" required title="Skriv inn e-post!">
 				</div>
 			</li>
 			<li class="innloggingsliste">
