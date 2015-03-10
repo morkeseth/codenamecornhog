@@ -3,27 +3,34 @@ session_start();
 ob_start();
 ?>
 
-<!doctype html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Reserver grupperom</title>
+<?php require_once 'header.php';?>
+<img src="images/textlogo.png" id="textlogo">
 
-</head>
-<body>
-	<h3>
-		Logg inn for å reservere
-	</h3>
-	<form action="" method="post" name="form">
-		E-post:
-		<br><input type="email" name="email" required title="Skriv inn e-post!"><br>
-		Passord:
-		<br><input type="password" name="password" required title="Skriv inn passord!">
-		
-		<br><input type="submit" value="Logg inn" name="logginn">
-	</form>
+<form id="innloggingsform" action="" method="post" name="form">
+	<div id="innloggingwrapper">
+		<ul>	
+			<li class="innloggingsliste">
+				<p class="bruker">Brukernavn*</p>
+				<div class="brukerdiv">
+					<input class="brukerinput" type="text" name="email" required title="Skriv inn e-post!">
+				</div>
+			</li>
+			<li class="innloggingsliste">
+				<p class="bruker">Passord*</p>
+				<div class="brukerdiv">
+					<input class="brukerinput" type="password" name="password" required title="Skriv inn passord!">
+				</div>
+			</li>
+			<li class="innloggingsliste">
+				<div id="submitdiv">
+					<input id="submit" type="submit" value="Logg inn" name="logginn">
+				</div>
+			</li>
+		</ul>
+	</div>
+</form>
 
-	<?php
+<?php
 	if(isset($_POST['logginn'])) {
 		$_SESSION['auth_token'] = false;
 		$email = $_POST['email'];
@@ -45,6 +52,6 @@ ob_start();
 
 	?>
 
-</body>
+<div id="page1bot"><div> 
+<?php require_once 'footer.php';?>
 
-</html>
