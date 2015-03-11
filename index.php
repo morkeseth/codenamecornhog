@@ -1,32 +1,17 @@
 <?php
 session_start();
 ob_start();
+require_once 'header.php';
 ?>
 
-<?php require_once 'header.php';?>
 <img src="images/textlogo.png" id="textlogo">
 
-<form id="innloggingsform" action="" method="post" name="form">
-	<div id="innloggingwrapper">
-		<ul>	
-			<li class="innloggingsliste">
-				<p class="bruker">E-postadresse*</p>
-				<div class="brukerdiv">
-					<input class="brukerinput" type="email" name="email" required title="Skriv inn e-post!">
-				</div>
-			</li>
-			<li class="innloggingsliste">
-				<p class="bruker">Passord*</p>
-				<div class="brukerdiv">
-					<input class="brukerinput" type="password" name="password" required title="Skriv inn passord!">
-				</div>
-			</li>
-			<li class="innloggingsliste">
-				<div id="submitdiv">
-					<input id="submit" type="submit" value="Logg inn" name="logginn">
-				</div>
-			</li>
-		</ul>
+<form id="innloggingsform" action="" method="post" name="form">	
+	<p class="bruker">E-postadresse*</p>
+	<input class="brukerinput" type="email" name="email" required title="Skriv inn e-post!">		<p class="bruker">Passord*</p>
+	<input class="brukerinput" type="password" name="password" required title="Skriv inn passord!"><br>
+	<div id="submitdiv">
+		<input id="submit" type="submit" value="Logg inn" name="logginn">
 	</div>
 </form>
 

@@ -12,36 +12,38 @@
 	margin-top: 30px;
 }
 
+#footerpic {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
 /*Page 1 classes*/
 .bruker {
 	font-size: 18px;
 	font-family: Verdana;
+	text-align: left;
 } 
 
-.innloggingsliste {
-	list-style: none;
-}
-
-.brukerdiv {
-	display: block;
-}
 
 .brukerinput {
 	width: 377px;
 	height: 46px;
 	border: solid 3px #010101;
 	background-color: transparent;
+	text-align: center;
 }
-.brukerinput[type="text"] {
+.brukerinput[type="email"] {
 	font-size: 18px;
 	font-family: Verdana;
 }
-/*Page 1 id's*/
-#footerpic {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
+
+.brukerinput[type="password"] {
+	font-size: 18px;
+	font-family: verdana;
 }
+
+/*Page 1 id's*/
 
 #textlogo {
 	height: 80px;
@@ -51,21 +53,17 @@
 	display: block;
 }
 
-#innloggingwrapper {
-	width: 422px;
-	margin-left: -220px;
-	background-color: transparent;
+#innloggingsform {
+	margin-top: 100px;
+	width: 383px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
-#innloggingsform {
-	margin-left: 50%;
-	margin-top: 100px;
-}
 
 #submit {
 	margin-top: 20px;
 	background-color: transparent;
-	box-shadow: 0 0 0 transparent;
 	height: 46px;
 	width: 120px;
 	border: solid 3px black;
@@ -83,19 +81,19 @@
 }
 
 #page1bot{
-	margin-top: 280px;
+	margin-top: 180px;
 }
 
 /*Page 2 classes*/
 
 /*Page 2 id's*/
 #outerbox {
-	margin-left: 50%;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #mainbox {
 	height: 270px;
 	width: 500px;
 	margin-top: 160px;
-	margin-left: -250px;
 }
