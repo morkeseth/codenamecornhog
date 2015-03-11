@@ -1,4 +1,17 @@
-<?php require_once 'header.php';?>
+<?php 
+session_start();
+ob_start();
+
+require_once 'header.php';
+
+if($_SESSION['auth_token']) {
+	echo "";
+} else {
+	header("Location:index.php");
+	ob_flush();
+}
+
+?>
 
 <ul>
 	<li>
