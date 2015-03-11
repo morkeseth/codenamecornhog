@@ -1,11 +1,15 @@
 <?php require_once 'header.php';?>
 
-<a href=>
-	<div id="mainbox">
-		<div id="innerbox">
-			<p id="innertext">Søk etter grupperom</p>
+<ul>
+	<li>
+		<div id="mainbox">
+			<div id="innerbox">
+				<p id="innertext">Søk etter grupperom</p>
+			</div>
 		</div>
-	</div>
-</a>
+	</li>
+	<li>
+</ul>
+
 
 <?php require_once 'footer.php';?>
