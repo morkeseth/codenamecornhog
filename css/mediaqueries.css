@@ -1,4 +1,42 @@
-@media (max-width: 1024px) and (min-width: 640px) {
+@media (max-width: 1920px) and (min-width: 1680px) {
+  .mainlogo {
+    height: 80px;
+  }
+
+  #textlogo {
+    height: 80px;
+  }
+
+  #footerpic {
+    max-width: 1920px;
+    overflow: hidden;
+  }
+
+  #page1bot {
+  margin-top: 180px;
+  }
+}
+
+@media (max-width: 1680px) and (min-width: 1024px) {
+  .mainlogo {
+    height: 70px;
+  }
+
+  #textlogo {
+    height: 70px;
+  }
+
+  #footerpic {
+    max-width: 1680px;
+    overflow: hidden;
+  }
+
+  #page1bot {
+  margin-top: 160px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 860px) {
   .mainlogo {
     height: 60px;
   }
@@ -13,11 +51,30 @@
   }
 
   #page1bot {
-  margin-top: 100px;
+  margin-top: 140px;
   }
 }
 
-@media (max-width: 640px) and (min-width: 0px) {
+@media (max-width: 860px) and (min-width: 640px) {
+  .mainlogo {
+    height: 50px;
+  }
+
+  #textlogo {
+    height: 50px;
+  }
+
+  #footerpic {
+    max-width: 860px;
+    overflow: hidden;
+  }
+
+  #page1bot {
+  margin-top: 120px;
+  }
+}
+
+@media (max-width: 640px) and (min-width: 480px) {
   .mainlogo {
     height: 40px;
   }
@@ -32,6 +89,44 @@
   }
 
   #page1bot {
+  margin-top: 100px;
+  }
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .mainlogo {
+    height: 30px;
+  }
+
+  #textlogo {
+    height: 30px;
+  }
+
+  #footerpic {
+    max-width: 480px;
+    overflow: hidden;
+  }
+
+  #page1bot {
   margin-top: 80px;
+  }
+}
+
+@media (max-width: 320px) and (min-width: 0px) {
+  .mainlogo {
+    height: 20px;
+  }
+
+  #textlogo {
+    height: 20px;
+  }
+
+  #footerpic {
+    max-width: 320px;
+    overflow: hidden;
+  }
+
+  #page1bot {
+  margin-top: 60px;
   }
 }
