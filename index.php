@@ -26,9 +26,8 @@ require_once 'header.php';
 		$sql -> execute();
 		$resultat = $sql; 
 		if ($sql->rowCount() > 0) {
-			$_SESSION['auth_token']=true;
-			echo "Passordet er korrekt!";
-			header("Location: reserve.php");
+			$_SESSION['auth_token'] = true;
+			header("Location: main.php");
 			ob_flush();
 		} else { 
 			echo "<strong>Feil e-post eller passord!</strong>"; 
