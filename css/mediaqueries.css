@@ -1,0 +1,37 @@
+@media (max-width: 1024px) and (min-width: 640px) {
+  .mainlogo {
+    height: 60px;
+  }
+
+  #textlogo {
+    height: 60px;
+  }
+
+  #footerpic {
+    max-width: 1024px;
+    overflow: hidden;
+  }
+
+  #page1bot {
+  margin-top: 100px;
+  }
+}
+
+@media (max-width: 640px) and (min-width: 0px) {
+  .mainlogo {
+    height: 40px;
+  }
+
+  #textlogo {
+    height: 40px;
+  }
+
+  #footerpic {
+    max-width: 640px;
+    overflow: hidden;
+  }
+
+  #page1bot {
+  margin-top: 80px;
+  }
+}
