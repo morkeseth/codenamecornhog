@@ -35,7 +35,7 @@ ob_start();
 		$_SESSION['auth_token'] = false;
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
+		$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "");
 		$sql = $db -> prepare ("SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')");
 		$sql->setFetchMode(PDO::FETCH_OBJ);
 		$sql -> execute();
