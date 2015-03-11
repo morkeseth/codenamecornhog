@@ -2,9 +2,8 @@
 
 <a href=>
 	<div id="mainbox">
-		<p>Søk etter grupperom</p>
 		<div id="innerbox">
-			<p></p>
+			<p id="innertext">Søk etter grupperom</p>
 		</div>
 	</div>
 </a>

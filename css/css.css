@@ -75,7 +75,7 @@ html {
 	border: solid 3px black;
 	font-size: 18px;
 	font-family: Verdana;
-	-webkit-transition: 0.5s;
+	-webkit-transition: background-color 0.5s, color 0.5s;
 }
 #submitdiv {
 	text-align: right;
@@ -93,16 +93,32 @@ html {
 /*Page 2 classes*/
 
 /*Page 2 id's*/
+a {
+	text-decoration: none;
+}
 
 #mainbox {
-	height: 270px;
+	height: 170px;
 	width: 500px;
 	margin-top: 75px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
+	padding-top: 100px;
 }
 
 #innerbox {
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid black;
+	background-color: transparent;
+	color: black;
+	-webkit-transition: color 0.5s, border-color 0.5s;
 
+}
+
+#innerbox:hover {
+	color: white;
+	border-color: white;
 }
