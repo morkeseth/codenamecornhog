@@ -87,7 +87,7 @@ html, body {
 }
 
 
-#submit {
+/*#submit {
 	margin-top: 20px;
 	background-color: transparent;
 	height: 46px;
@@ -96,11 +96,11 @@ html, body {
 	font-size: 18px;
 	font-family: Verdana;
 	-webkit-transition: background-color 0.5s, color 0.5s;
+	position: relative;
+	right: 0px;
 
-}
-#submitdiv {
-	text-align: right;
-}
+}*/
+
 
 #submit:hover {
 	background-color: #101010;

@@ -1,0 +1,16 @@
+#wrap {
+	text-align: center;
+	font-family: Verdana;
+}
+
+#submit {
+	margin-top: 20px;
+	background-color: transparent;
+	height: 46px;
+	width: 120px;
+	border: solid 3px black;
+	font-size: 18px;
+	font-family: Verdana;
+	-webkit-transition: background-color 0.5s, color 0.5s;
+
+}

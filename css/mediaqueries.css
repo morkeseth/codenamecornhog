@@ -75,7 +75,7 @@
 
   .brukerinput {
   width: 270px;
-  height: 45px;
+  height: 40px;
   }
 
   #innloggingsform {
@@ -84,12 +84,16 @@
 
   #submit {
     width: 80px;
-    height: 45px;
+    height: 40px;
     font-size: 10px;
   }
 
   .bruker {
   font-size: 12px;
+  }
+  #feilmelding {
+    width: 276px;
+    height: 40px;
   }
 }
 
@@ -113,7 +117,7 @@
 
   .brukerinput {
   width: 260px;
-  height: 40px;
+  height: 35px;
   }
 
   #innloggingsform {
@@ -128,6 +132,11 @@
 
   .bruker {
   font-size: 12px;
+  }
+
+  #feilmelding {
+    width: 266px;
+    height: 30px;
   }
 }
 
@@ -162,11 +171,16 @@
     width: 60px;
     height: 30px;
     font-size: 10px;
-    
+
   }
 
   .bruker {
   font-size: 12px;
+  }
+
+  #feilmelding {
+    width: 266px;
+    height: 30px;
   }
 
 }

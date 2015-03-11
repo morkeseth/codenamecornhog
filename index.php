@@ -6,7 +6,17 @@ require_once 'header.php';
 
 <img src="images/textlogo.png" id="textlogo">
 
-<div id="formwrapper">
+<form id="wrap" action="" method="post" name="form">
+		<p>E-postadresse *</p>
+		<input class="brukerinput" type="email" name="email" required placeholder="E-postadresse">
+
+		<p>Passord *</p>
+		<input class="brukerinput" type="password" name="password" required placeholder="Passord"><br>
+
+		<input id="submit" type="submit" value="Logg inn" name="login">
+</form>
+
+<!--<div id="formwrapper">
 <form id="innloggingsform" action="" method="post" name="form">	
 	
 	<p class="bruker">E-postadresse*</p>
@@ -20,9 +30,10 @@ require_once 'header.php';
 	</div>
 </form>
 </div>
+-->
 
 <?php
-	if(isset($_POST['logginn'])) {
+	if(isset($_POST['login'])) {
 		$_SESSION['auth_token'] = false;
 		$email = $_POST['email'];
 		$password = $_POST['password'];
