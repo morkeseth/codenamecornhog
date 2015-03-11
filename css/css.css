@@ -1,6 +1,26 @@
-html {
-	overflow-y: scroll;
-	overflow-x: hidden;
+html, body {
+    overflow-x: hidden !important;
+    position: relative !important;
+}
+
+#formwrapper {
+	position: relative;
+}
+
+#feilmelding {
+	text-align: center;
+	padding-top: 15px;
+	margin-top: 20px;
+	background-color: #FD7265;
+	width: 383px;
+	height: 35px;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: Verdana;
+}
+
+#logout {
+	text-align: center;
 }
 
 
@@ -76,6 +96,7 @@ html {
 	font-size: 18px;
 	font-family: Verdana;
 	-webkit-transition: background-color 0.5s, color 0.5s;
+
 }
 #submitdiv {
 	text-align: right;
@@ -121,4 +142,8 @@ a {
 #innerbox:hover {
 	color: white;
 	border-color: white;
+}
+
+ul {
+	list-style-type: none;
 }

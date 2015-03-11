@@ -72,6 +72,25 @@
   #page1bot {
   margin-top: 120px;
   }
+
+  .brukerinput {
+  width: 270px;
+  height: 45px;
+  }
+
+  #innloggingsform {
+  width: 276px;
+  }
+
+  #submit {
+    width: 80px;
+    height: 45px;
+    font-size: 10px;
+  }
+
+  .bruker {
+  font-size: 12px;
+  }
 }
 
 @media (max-width: 640px) and (min-width: 480px) {
@@ -92,12 +111,17 @@
   margin-top: 100px;
   }
 
+  .brukerinput {
+  width: 260px;
+  height: 40px;
+  }
+
   #innloggingsform {
-  width: 306px;
+  width: 266px;
   }
 
   #submit {
-    width: 70px;
+    width: 75px;
     height: 40px;
     font-size: 10px;
   }
@@ -107,7 +131,7 @@
   }
 }
 
-@media (max-width: 480px) and (min-width: 320px) {
+@media (max-width: 480px) and (min-width: 0px) {
   .mainlogo {
     height: 70px;
   }
@@ -138,56 +162,11 @@
     width: 60px;
     height: 30px;
     font-size: 10px;
+    
   }
 
   .bruker {
   font-size: 12px;
   }
 
-}
-
-@media (max-width: 320px) and (min-width: 0px) {
-  /* Størrelse ACT logo */
-  .mainlogo {
-    height: 70px;
-  }
-
-  /* Størrelse tekst under logo */
-  #textlogo {
-    height: 70px;
-  }
-
-  /* Bredde på footer bilde */
-  #footerpic {
-    max-width: 320px;
-    overflow: hidden;
-  }
-
-  /* Margin mellom footer og innlogging */
-  #page1bot {
-  margin-top: 60px;
-  }
-
-  /* Størrelse på brukerinput */
-  .brukerinput {
-  width: 200px;
-  height: 25px;
-  }
-
-  /* Størrelse på selve formen */
-  #innloggingsform {
-  width: 266px;
-  }
-
-  /* Størrelse av Logg inn knapp */
-  #submit {
-    width: 60px;
-    height: 30px;
-    font-size: 10px;
-  }
-
-  /* Tekststørrelse over input */
-  .bruker {
-  font-size: 12px;
-  }
 }

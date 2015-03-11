@@ -12,6 +12,7 @@ if($_SESSION['auth_token']) {
 }
 
 ?>
+	<a href="logout.php"><p id="logout">Logg ut</p></a>
 
 <ul>
 	<li>

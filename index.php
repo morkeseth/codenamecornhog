@@ -6,14 +6,20 @@ require_once 'header.php';
 
 <img src="images/textlogo.png" id="textlogo">
 
+<div id="formwrapper">
 <form id="innloggingsform" action="" method="post" name="form">	
+	
 	<p class="bruker">E-postadresse*</p>
-	<input class="brukerinput" type="email" name="email" required title="Skriv inn e-post!">		<p class="bruker">Passord*</p>
-	<input class="brukerinput" type="password" name="password" required title="Skriv inn passord!"><br>
+	<input class="brukerinput" type="email" name="email" required title="Skriv inn e-post!" placeholder="E-post">
+	<div id="feil_epost"></div>		
+
+	<p class="bruker">Passord*</p>
+	<input class="brukerinput" type="password" name="password" required title="Skriv inn passord!" placeholder="Passord"><br>
 	<div id="submitdiv">
 		<input id="submit" type="submit" value="Logg inn" name="logginn">
 	</div>
 </form>
+</div>
 
 <?php
 	if(isset($_POST['logginn'])) {
@@ -30,7 +36,7 @@ require_once 'header.php';
 			header("Location: main.php");
 			ob_flush();
 		} else { 
-			echo "<strong>Feil e-post eller passord!</strong>"; 
+			echo '<div id="feilmelding">Feil e-post eller passord!</div>'; 
 		}
 	}	
 
