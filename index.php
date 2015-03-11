@@ -24,10 +24,8 @@ require_once 'header.php';
 		$sql = $db -> prepare ("SELECT * FROM students WHERE (Email = '$email') AND (Passphrase = '$password')");
 		$sql->setFetchMode(PDO::FETCH_OBJ);
 		$sql -> execute();
-		$resultat = $sql; 
 		if ($sql->rowCount() > 0) {
-			$_SESSION['auth_token']=true;
-			echo "Passordet er korrekt!";
+			$_SESSION['auth_token'] = true;
 			header("Location: reserve.php");
 			ob_flush();
 		} else { 
