@@ -6,7 +6,7 @@
 		<link rel="stylesheet" type="text/css" href="css/css.css">
 		<style type="text/css">
 			<?php 
-			$box = array('#835581', '#FED575', '#1EB6EC', '#FD7265', '#63CAA6');
+			$box = array('rgb(112, 63, 111)', 'rgb(254, 207, 91)', '#1EB6EC', '#FD7265', '#63CAA6');
 		 	echo '#mainbox { background-color: ';
 		 	echo $box[array_rand($box)];
 		 	echo '}';
