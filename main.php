@@ -10,28 +10,28 @@ if($_SESSION['auth_token']) {
 	header("Location:index.php");
 	ob_flush();
 }
-
 ?>
-	<a href="logout.php"><p id="logout">Logg ut</p></a>
 
-<ul>
-	<li>
-		<div id="topbox" class="mainbox mainbox2">
-			<a href="#">
-				<div id="textbox">
-					<p id="innertext">Søk etter grupperom</p>
-				</div>
-			</a>
+<a href="logout.php"><p id="logout">Logg ut</p></a>
+
+<div id="topbox" class="mainbox mainbox2">
+	<a href="#open">
+		<div id="textbox">
+			<p id="innertext">Søk etter grupperom</p>
 		</div>
-		<ul>
-			<li>	
-				<div id="sok"></div>
-			</li>
-		</ul>
-	</li>
-	<li>
-		<div id="botbox" class="mainbox mainbox2"></div>
-</ul>
+	</a>
+</div>
+<div id="open">
+	<a href="#close">
+		<div id="close"></div>
+	</a>
+</div>
+<div id="botbox" class="mainbox mainbox2"></div>
+
+<div>
+
+</div>
+
 
 
 <?php require_once 'footer.php';?>
