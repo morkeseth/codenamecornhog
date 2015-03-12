@@ -16,13 +16,21 @@ if($_SESSION['auth_token']) {
 
 <ul>
 	<li>
-		<div id="mainbox">
-			<div id="innerbox">
-				<p id="innertext">Søk etter grupperom</p>
-			</div>
+		<div id="topbox" class="mainbox mainbox2">
+			<a href="#">
+				<div id="textbox">
+					<p id="innertext">Søk etter grupperom</p>
+				</div>
+			</a>
 		</div>
+		<ul>
+			<li>	
+				<div id="sok"></div>
+			</li>
+		</ul>
 	</li>
 	<li>
+		<div id="botbox" class="mainbox mainbox2"></div>
 </ul>
 
 

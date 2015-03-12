@@ -10,7 +10,7 @@
 		<style type="text/css">
 			<?php 
 			$box = array('#835581', '#FED575', '#1EB6EC', '#FD7265', '#63CAA6');
-		 	echo '#mainbox { background-color: ';
+		 	echo '.mainbox { background-color: ';
 		 	echo $box[array_rand($box)];
 		 	echo '}';
 			 ?>			
