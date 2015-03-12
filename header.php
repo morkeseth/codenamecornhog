@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 		<link rel="stylesheet" type="text/css" href="css/css.css">
 		<link rel="stylesheet" type="text/css" href="css/mediaqueries.css">
-		<link rel="stylesheet" type="text/css" href="css/ny_css.css">
+		<!--<link rel="stylesheet" type="text/css" href="css/ny_css.css">-->
 		<style type="text/css">
 			<?php 
 			$box = array('#835581', '#FED575', '#1EB6EC', '#FD7265', '#63CAA6');

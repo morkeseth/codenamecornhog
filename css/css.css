@@ -87,7 +87,7 @@ html, body {
 }
 
 
-/*#submit {
+#submit {
 	margin-top: 20px;
 	background-color: transparent;
 	height: 46px;
@@ -99,7 +99,7 @@ html, body {
 	position: relative;
 	right: 0px;
 
-}*/
+}
 
 
 #submit:hover {

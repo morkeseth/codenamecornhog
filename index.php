@@ -6,7 +6,7 @@ require_once 'header.php';
 
 <img src="images/textlogo.png" id="textlogo">
 
-<form id="wrap" action="" method="post" name="form">
+<!--<form id="wrap" action="" method="post" name="form">
 		<p>E-postadresse *</p>
 		<input class="brukerinput" type="email" name="email" required placeholder="E-postadresse">
 
@@ -14,9 +14,9 @@ require_once 'header.php';
 		<input class="brukerinput" type="password" name="password" required placeholder="Passord"><br>
 
 		<input id="submit" type="submit" value="Logg inn" name="login">
-</form>
+</form>-->
 
-<!--<div id="formwrapper">
+<div id="formwrapper">
 <form id="innloggingsform" action="" method="post" name="form">	
 	
 	<p class="bruker">E-postadresse*</p>
@@ -26,11 +26,11 @@ require_once 'header.php';
 	<p class="bruker">Passord*</p>
 	<input class="brukerinput" type="password" name="password" required title="Skriv inn passord!" placeholder="Passord"><br>
 	<div id="submitdiv">
-		<input id="submit" type="submit" value="Logg inn" name="logginn">
+		<input id="submit" type="submit" value="Logg inn" name="login">
 	</div>
 </form>
 </div>
--->
+
 
 <?php
 	if(isset($_POST['login'])) {
