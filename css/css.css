@@ -124,7 +124,7 @@ a {
 	text-decoration: none;
 }
 
-#topbox {
+#firstbox {
 
 	margin-top: 75px;
 	text-align: center;
@@ -156,7 +156,7 @@ ul {
 	height: 0px;
 	margin-right: auto;
 	margin-left: auto;
-	background-color: black;
+	background-color: white;
 	-webkit-transition: height 1s;
 }
 
@@ -165,17 +165,21 @@ ul {
 	width: 40px;
 	margin-left: auto;
 	margin-right: auto;
-	background: white;
+	background: black;
 	-webkit-transition: height 1s;
 }
 #open:target {
 	height: 240px;
 }
 
-#close:target #open {
+:target #open {
 	height: 0px;
 }
 
 #botbox {
 	position: relative;
+}
+
+#secondbox {
+
 }

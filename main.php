@@ -14,7 +14,7 @@ if($_SESSION['auth_token']) {
 
 <a href="logout.php"><p id="logout">Logg ut</p></a>
 
-<div id="topbox" class="mainbox mainbox2">
+<div id="firstbox" class="mainbox mainbox2">
 	<a href="#open">
 		<div id="textbox">
 			<p id="innertext">Søk etter grupperom</p>
@@ -22,14 +22,14 @@ if($_SESSION['auth_token']) {
 	</a>
 </div>
 <div id="open">
-	<a href="#close">
+	<a href="#">
 		<div id="close"></div>
 	</a>
 </div>
-<div id="botbox" class="mainbox mainbox2"></div>
+<div class="mainbox mainbox2"></div>
 
-<div>
-
+<div id="secondbox">
+	<p></p>
 </div>
 
 
