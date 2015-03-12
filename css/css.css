@@ -19,6 +19,22 @@ html, body {
 	font-family: Verdana;
 }
 
+#greenmessage {
+	text-align: center;
+	padding-top: 15px;
+	margin-top: 20px;
+	background-color: #63CAA6;
+	width: 383px;
+	height: 35px;
+	margin-right: auto;
+	margin-left: auto;
+	font-family: Verdana;
+}
+
+#calendar {
+	text-align: center;
+}
+
 #logout {
 	text-align: center;
 }
