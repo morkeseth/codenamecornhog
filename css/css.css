@@ -173,19 +173,20 @@ ul {
 	margin-right: auto;
 	margin-left: auto;
 	background-color: white;
+	text-align: center;
 	-webkit-transition: height 1s;
 }
 
 #close {
-	height: 40px;
-	width: 40px;
-	margin-left: auto;
-	margin-right: auto;
-	background: black;
-	-webkit-transition: height 1s;
+	visibility: hidden;
+	-webkit-transition: visibility 1s;
 }
 #open:target {
 	height: 240px;
+}
+
+#open:target #close {
+	visibility: visible;
 }
 
 :target #open {
@@ -197,5 +198,34 @@ ul {
 }
 
 #secondbox {
+	margin-top: 90px;
+	height: 20px;
+	width: 500px;
+	border-top: 3px solid black;
+	margin-left: auto;
+	margin-right: auto;
+}
 
+#secondboxbot {
+	height: 0;
+	width: 500px;
+	border-bottom: 3px solid black;
+	margin-right: auto;
+	margin-left: auto;'
+	position: relative;
+}
+
+#rooms {
+	width: 400px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 0;
+	visibility: hidden;
+	text-align: center;
+	transition: 1s;
+}
+
+#rooms:target {
+	visibility: visible;
+	height: 400px;
 }
