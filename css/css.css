@@ -10,10 +10,8 @@ html, body {
 #feilmelding {
 	text-align: center;
 	padding-top: 15px;
-	margin-top: 20px;
+	margin-top: 10px;
 	background-color: #FD7265;
-	width: 383px;
-	height: 35px;
 	margin-right: auto;
 	margin-left: auto;
 	font-family: Verdana;
@@ -174,15 +172,21 @@ ul {
 	margin-left: auto;
 	background-color: white;
 	text-align: center;
-	-webkit-transition: height 1s;
+	visibility: hidden;
+	-webkit-transition: height 1s, visibility 0s;
+
 }
 
 #close {
 	visibility: hidden;
-	-webkit-transition: visibility 1s;
+	-webkit-transition: visibility 0s;
+}
+#close:target #open {
+	-webkit-transition: visibility 0s;
 }
 #open:target {
-	height: 240px;
+	height: 250px;
+	visibility: visible;
 }
 
 #open:target #close {
@@ -191,6 +195,7 @@ ul {
 
 :target #open {
 	height: 0px;
+	visibility: hidden;
 }
 
 #botbox {
@@ -222,10 +227,10 @@ ul {
 	height: 0;
 	visibility: hidden;
 	text-align: center;
-	transition: 1s;
+	-webkit-transition: height 1s;
 }
 
 #rooms:target {
 	visibility: visible;
-	height: 400px;
+	height: 230px;
 }
