@@ -167,35 +167,14 @@ ul {
 
 #open {
 	width: 500px;
-	height: 0px;
+	height: 250px;
 	margin-right: auto;
 	margin-left: auto;
 	background-color: white;
 	text-align: center;
-	visibility: hidden;
-	-webkit-transition: height 1s, visibility 0s;
+	display: none;
+	position: relative;
 
-}
-
-#close {
-	visibility: hidden;
-	-webkit-transition: visibility 0s;
-}
-#close:target #open {
-	-webkit-transition: visibility 0s;
-}
-#open:target {
-	height: 250px;
-	visibility: visible;
-}
-
-#open:target #close {
-	visibility: visible;
-}
-
-:target #open {
-	height: 0px;
-	visibility: hidden;
 }
 
 #botbox {
@@ -224,13 +203,7 @@ ul {
 	width: 400px;
 	margin-left: auto;
 	margin-right: auto;
-	height: 0;
-	visibility: hidden;
+	height: 250;
 	text-align: center;
-	-webkit-transition: height 1s;
-}
-
-#rooms:target {
-	visibility: visible;
-	height: 230px;
+	display: none;
 }

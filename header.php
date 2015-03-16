@@ -15,6 +15,7 @@
 		 	echo '}';
 			 ?>			
 		</style>
+		<script src="javaScript/jquery-1.11.2.js"></script>
 	</head>
 
 	<body>

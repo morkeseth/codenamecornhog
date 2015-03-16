@@ -14,36 +14,48 @@ if($_SESSION['auth_token']) {
 
 <a href="logout.php"><p id="logout">Logg ut</p></a>
 
+<script>
+	$(document).ready(function(){
+
+		$(".opener").click(function(){
+			$("#calendar").slideToggle("slow");
+			$(this).toggleClass("active");
+			return false;
+
+		});
+	});
+</script>
+
 <div id="firstbox" class="mainbox mainbox2">
-	<a href="#open">
+	<a class="opener" href="#">
 		<div id="textbox">
 			<p id="innertext">Søk etter grupperom</p>
 		</div>
 	</a>
 </div>
-<div id="open">
-<form id="calendar" action="" method="post">
 
-	<p>Velg dato:</p>
-	<input type="date" name="date">
+	<form id="calendar" action="" method="post">
 
-	<p>Antall studenter:</p>
-	<select name="students">
+		<p>Velg dato:</p>
+		<input type="date" name="date">
+
+		<p>Antall studenter:</p>
+		<select name="students">
 		<option value="2">2</option>
 		<option value="3">3</option>
 		<option value="4">4</option>
-	</select>
+		</select>
 
-	<!--<p>Prosjektor eller ikke?</p>
-	<input type="radio" name="projector" value="projector" required>Vi trenger prosjektor
-	<br>
-	<input type="radio" name="projector" value="noprojector" required>Vi trenger ikke prosjektor-->
+		<!--<p>Prosjektor eller ikke?</p>
+		<input type="radio" name="projector" value="projector" required>Vi trenger prosjektor
+		<br>
+		<input type="radio" name="projector" value="noprojector" required>Vi trenger ikke prosjektor-->
 
-	<p><input type="submit" value="Søk" name="search"></p>
+		<p><input type="submit" value="Søk" name="search"></p>
 
-</form>
+	</form>
 
-<?php
+	<?php
 	if(isset($_POST['search'])) {
 		$date = $_POST['date'];
 		$students = $_POST['students'];
@@ -71,13 +83,13 @@ if($_SESSION['auth_token']) {
 		}
 	}
 
-?>
+	?>
 	<a href="#" id="close">Avslutt søk</a>
-</div>
+
 <div class="mainbox mainbox2"></div>
 
 <div id="secondbox">
-	<a href="#rooms">Se dine rom</a>
+	<a id="opener2" href="#">Se dine rom</a>
 </div>
 <div id="rooms">
 	<ul>
