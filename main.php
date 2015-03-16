@@ -14,25 +14,15 @@ if($_SESSION['auth_token']) {
 
 <a href="logout.php"><p id="logout">Logg ut</p></a>
 
-<script>
-	$(document).ready(function(){
-
-		$(".opener").click(function(){
-			$("#calendar").slideToggle("slow");
-			$(this).toggleClass("active");
-			return false;
-
-		});
-	});
-</script>
 
 <div id="firstbox" class="mainbox mainbox2">
 	<a class="opener" href="#">
 		<div id="textbox">
-			<p id="innertext">Søk etter grupperom</p>
+			<p id="innertext"></p>
 		</div>
 	</a>
 </div>
+
 
 	<form id="calendar" action="" method="post">
 
@@ -84,12 +74,13 @@ if($_SESSION['auth_token']) {
 	}
 
 	?>
-	<a href="#" id="close">Avslutt søk</a>
+	
 
-<div class="mainbox mainbox2"></div>
+
+<div id="firstbot" class="mainbox mainbox2"></div>
 
 <div id="secondbox">
-	<a id="opener2" href="#">Se dine rom</a>
+	<a class="opener2" href="#">Se dine rom</a>
 </div>
 <div id="rooms">
 	<ul>
@@ -100,5 +91,20 @@ if($_SESSION['auth_token']) {
 	<a href="#"><br><br><br><br><br><br>Avslutt søk</a>
 </div>
 <div id="secondboxbot"></div>
+
+<script>
+	$(document).ready(function(){
+
+		$(".opener").click(function(){
+			$("#calendar").delay( 220 ).slideToggle( 300 );
+			$("#firstbot").slideToggle( 300 );
+			if ($("#innertext").text("Søk etter grupperom")) {
+				$("#innertext").text("Avslutt søk");
+			} else {
+				$("#innertext").text("Søk etter grupperom");
+			};
+		});
+	});
+</script>
 
 <?php require_once 'footer.php';?>

@@ -31,6 +31,7 @@ html, body {
 
 #calendar {
 	text-align: center;
+	display: none;
 }
 
 #logout {
@@ -177,8 +178,8 @@ ul {
 
 }
 
-#botbox {
-	position: relative;
+#firstbot {
+	display: none;
 }
 
 #secondbox {
