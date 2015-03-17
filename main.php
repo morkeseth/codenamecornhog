@@ -46,34 +46,42 @@ if($_SESSION['auth_token']) {
 	</form>
 
 	<?php
-	if(isset($_POST['search'])) {
-		$date = $_POST['date'];
-		$students = $_POST['students'];
-		$projector = $_POST['projector'];
-		$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
-		$sql = $db -> prepare ("SELECT * FROM rooms WHERE (date = '$date') AND (students = '$students')");
-		$sql->setFetchMode(PDO::FETCH_OBJ);
-		$sql -> execute();
-		if ($sql->rowCount() > 0) {
-			//echo '<div id="greenmessage">Hey, det er ledige rom på valgt dato!</div>';
+if(isset($_POST['search'])) {
+	$date = $_POST['date'];
+	$students = $_POST['students'];
+	$projector = $_POST['projector'];
+	$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
+	$sql = $db -> prepare ("SELECT * FROM rooms");
+	$sql->setFetchMode(PDO::FETCH_OBJ);
+	$sql -> execute();
+	if ($sql->rowCount() > 0) {
+		$query = $db -> prepare ("SELECT * FROM rooms WHERE available = 'yes' AND (date = '$date') AND (students = '$students')");
+		$query->setFetchMode(PDO::FETCH_OBJ);
+		$query -> execute();
+		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+			echo '<div class="mainbox mainbox2">';
+			echo "<br>";
+			echo "<b>Ledig ".$row['date']." for ".$row['students']." studenter</b>";
+			echo " <form method='post'><input type='submit' name='reserve' value='Reserver'></form>";
+			echo '</div>';
+		}		
+	} else { 
+		echo '<p id="feilmelding">Ingen ledige rom på valgt dato!</p>'; 
+	}	
+}
 
-			$connection = mysql_connect("localhost", "root", "root"); // Establishing Connection with Server
-			$db = mysql_select_db("pj2100", $connection); // Selecting Database
-			//MySQL Query to read data
-			$query = mysql_query("SELECT * FROM rooms", $connection);
-			while ($row = mysql_fetch_array($query)) {
-			echo "<b>Ledig {$row['date']} for {$row['students']} studenter</b>";
-			echo "<br />";
-			}
-		
-		} 
+if(isset($_POST['reserve'])) {
+	$date = $_POST['date'];
+	$students = $_POST['students'];
+	$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
+	$query = $db -> prepare ("INSERT INTO rooms (students, date, available, assigned_to) VALUES ('$students', '$date', 'no', 'morpat14@student.westerdals.no')");
+	$query->setFetchMode(PDO::FETCH_OBJ);
+	$query -> execute();
+	echo "Rom reservert!";
+}
 
-		else { 
-			echo '<p id="feilmelding">Ingen ledige rom på valgt dato!</p>'; 
-		}
-	}
 
-	?>
+?>
 	
 
 
