@@ -24,28 +24,28 @@ if($_SESSION['auth_token']) {
 </div>
 
 
-	<form id="calendar" action="" method="post">
+<form id="calendar" action="" method="post">
 
-		<p>Velg dato:</p>
-		<input type="date" name="date">
+	<p>Velg dato:</p>
+	<input type="date" name="date">
 
-		<p>Antall studenter:</p>
-		<select name="students">
+	<p>Antall studenter:</p>
+	<select name="students">
 		<option value="2">2</option>
 		<option value="3">3</option>
 		<option value="4">4</option>
-		</select>
+	</select>
 
-		<!--<p>Prosjektor eller ikke?</p>
-		<input type="radio" name="projector" value="projector" required>Vi trenger prosjektor
-		<br>
-		<input type="radio" name="projector" value="noprojector" required>Vi trenger ikke prosjektor-->
+	<p>Prosjektor eller ikke?</p>
+	<input type="radio" name="projector" value="projector" required>Ja
+	<br>
+	<input type="radio" name="projector" value="noprojector" required>Nei
 
-		<p><input type="submit" value="Søk" name="search"></p>
+	<p><input type="submit" value="Søk" name="search"></p>
 
-	</form>
+</form>
 
-	<?php
+<?php
 if(isset($_POST['search'])) {
 	$date = $_POST['date'];
 	$students = $_POST['students'];
@@ -59,31 +59,37 @@ if(isset($_POST['search'])) {
 		$query->setFetchMode(PDO::FETCH_OBJ);
 		$query -> execute();
 		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+			$roomid = $row['roomid'];
+			$date = $row['date'];
+			$students = $row['students'];
+			$from = $row['from_time'];
+			$to = $row['to_time'];
 			echo '<div class="mainbox mainbox2">';
 			echo "<br>";
-			echo "<b>Ledig ".$row['date']." for ".$row['students']." studenter</b>";
+			echo "<b>Rom nummer $roomid er ledig $date for $students studenter fra klokken $from til klokken $to.</b>";
 			echo " <form method='post'><input type='submit' name='reserve' value='Reserver'></form>";
 			echo '</div>';
 		}		
 	} else { 
-		echo '<p id="feilmelding">Ingen ledige rom på valgt dato!</p>'; 
+		echo 'Ingen ledige rom på valgt dato!'; 
 	}	
 }
 
 if(isset($_POST['reserve'])) {
-	$date = $_POST['date'];
-	$students = $_POST['students'];
+	$roomid = $row['roomid'];
+	$date = $row['date'];
+	$students = $row['students'];
+	$from = $row['from_time'];
+	$to = $row['to_time'];
+	$email = $_SESSION['email'];
+	$projector = $_POST['projector'];
 	$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
-	$query = $db -> prepare ("INSERT INTO rooms (students, date, available, assigned_to) VALUES ('$students', '$date', 'no', 'morpat14@student.westerdals.no')");
-	$query->setFetchMode(PDO::FETCH_OBJ);
-	$query -> execute();
-	echo "Rom reservert!";
-}
-
+	$query = $db -> prepare ("INSERT INTO reservations (date, email, roomid, from_time, to_time, projector) VALUES ('$date', '$email', '$roomid', '$from', '$to', '$projector', '$students')");
+	$db->exec($query);
+	echo "Rommet ble reservert!";
+} 
 
 ?>
-	
-
 
 <div id="firstbot" class="mainbox mainbox2"></div>
 
@@ -99,15 +105,15 @@ if(isset($_POST['reserve'])) {
 <div id="secondboxbot"></div>
 
 <script>
-	$(document).ready(function(){
-		$(".opener").click(function(){
-			$("#calendar").delay( 220 ).slideToggle( 300 );
-			$("#firstbot").slideToggle( 300 );
-		});
-		$(".opener2").click(function(){
-			$("#rooms").slideToggle( 300 );
-		});
+$(document).ready(function(){
+	$(".opener").click(function(){
+		$("#calendar").delay( 220 ).slideToggle( 300 );
+		$("#firstbot").slideToggle( 300 );
 	});
+	$(".opener2").click(function(){
+		$("#rooms").slideToggle( 300 );
+	});
+});
 </script>
 
 <?php require_once 'footer.php';?>
