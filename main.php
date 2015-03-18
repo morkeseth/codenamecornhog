@@ -37,9 +37,9 @@ if($_SESSION['auth_token']) {
 	</select>
 
 	<p>Prosjektor eller ikke?</p>
-	<input type="radio" name="projector" value="projector" required>Ja
+	<input type="radio" name="projector" value="yes" required>Ja
 	<br>
-	<input type="radio" name="projector" value="noprojector" required>Nei
+	<input type="radio" name="projector" value="no" required>Nei
 
 	<p><input type="submit" value="Søk" name="search"></p>
 
@@ -55,7 +55,7 @@ if(isset($_POST['search'])) {
 	$sql->setFetchMode(PDO::FETCH_OBJ);
 	$sql -> execute();
 	if ($sql->rowCount() > 0) {
-		$query = $db -> prepare ("SELECT * FROM rooms WHERE available = 'yes' AND (date = '$date') AND (students = '$students')");
+		$query = $db -> prepare ("SELECT * FROM rooms WHERE available = 'yes' AND (date = '$date') AND (students = '$students') AND (projector = '$projector')");
 		$query->setFetchMode(PDO::FETCH_OBJ);
 		$query -> execute();
 		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
@@ -66,27 +66,40 @@ if(isset($_POST['search'])) {
 			$to = $row['to_time'];
 			echo '<div class="mainbox mainbox2">';
 			echo "<br>";
-			echo "<b>Rom nummer $roomid er ledig $date for $students studenter fra klokken $from til klokken $to.</b>";
+			echo "<b>Rom nummer $roomid er ledig $date for $students studenter fra klokken $from til klokken $to. Prosjektor: $projector.</b>";
 			echo " <form method='post'><input type='submit' name='reserve' value='Reserver'></form>";
 			echo '</div>';
 		}		
 	} else { 
-		echo 'Ingen ledige rom på valgt dato!'; 
+		echo "Ingen ledige rom på valgt dato!"; 
 	}	
 }
 
 if(isset($_POST['reserve'])) {
-	$roomid = $row['roomid'];
-	$date = $row['date'];
-	$students = $row['students'];
-	$from = $row['from_time'];
-	$to = $row['to_time'];
-	$email = $_SESSION['email'];
-	$projector = $_POST['projector'];
-	$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
-	$query = $db -> prepare ("INSERT INTO reservations (date, email, roomid, from_time, to_time, projector) VALUES ('$date', '$email', '$roomid', '$from', '$to', '$projector', '$students')");
-	$db->exec($query);
-	echo "Rommet ble reservert!";
+	$date = "2015-03-18";
+	$email = "morpat14@student.westerdals.no";
+	$roomid = "10";
+	$from = "00:00:00";
+	$to = "00:00:00";
+	$projector = "yes";
+	$students = "2";
+
+	try {
+    $db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
+    // set the PDO error mode to exception
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $sql = "INSERT INTO reservations (date, email, roomid, from_time, to_time, projector, students) 
+    VALUES ('$date', '$email', '$roomid', '$from', '$to', '$projector', '$students')";
+    // use exec() because no results are returned
+    $db->exec($sql);
+    echo "Rom nummer $roomid reservert den $date for $email!";
+    }
+
+	catch(PDOException $e) {
+    	echo $sql . "<br>" . $e->getMessage();
+    }
+
+	$conn = null;
 } 
 
 ?>
