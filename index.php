@@ -1,6 +1,11 @@
 <?php
 session_start();
 ob_start();
+
+if($_SESSION['auth_token']) {
+	header("Location:main.php");
+}
+
 require_once 'header.php';
 ?>
 
