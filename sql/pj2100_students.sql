@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS pj2100;
+﻿CREATE DATABASE IF NOT EXISTS pj2100;
 USE pj2100;
 
 DROP TABLE IF EXISTS students;
@@ -25,6 +25,7 @@ INSERT INTO students VALUES
 	(701904,'Meieran','Liam Alex Shane','meilia14@student.westerdals.no',123),
 	(702073,'Mørkeseth','Patrik','morpat14@student.westerdals.no',123),
 	(702220,'Nguyen','Dang Cong','ngudan14@student.westerdals.no',123),
+	(701948, 'Gundersen', 'Preben', 'gunpre14@student.westerdals.no', 123),
 	(777777,'Palpatine','Sheev','palshe14@student.westerdals.no',123),
 	(888888,'Nawa','Hushu','nawhus14@student.westerdals.no',123),
 	(999999,'Dua Bake','Txana Bane','duatxa14@student.westerdals.no',123);
