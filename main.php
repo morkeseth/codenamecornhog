@@ -62,7 +62,8 @@ if(isset($_POST['search'])) {
 		$query->setFetchMode(PDO::FETCH_OBJ);
 		$query -> execute();
 		if ($query->rowCount() == 0) {
-			echo "Ingen ledige rom på valgt dato!";
+			echo "<br>";
+			echo "<div id='logout'>Ingen ledige rom på valgt dato!</div>";
 		} else {
 			while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 				$roomid = $row['roomid'];
