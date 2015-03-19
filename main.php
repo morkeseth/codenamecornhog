@@ -1,17 +1,21 @@
-<?php 
+<?php
+// Starte session for å sjekke at bruker er innlogget og for å bruke variabler fra forrige side
 session_start();
 ob_start();
 
+// Inkluderer header og databasekonfigurasjon
 require_once 'header.php';
 require_once 'libs/db.php';
 
 if($_SESSION['auth_token']) {
 	echo "";
 } else {
+	// Hvis bruker prøver å aksessere siden uten å være innlogget, blir h*n sendt tilbake til index.php
 	header("Location:index.php");
 	ob_flush();
 }
 
+// For å hente riktig e-post og fornavn/etternavn til innlogget bruker
 $email = $_SESSION["email"];
 $firstname = $_SESSION["firstname"];
 $lastname = $_SESSION["lastname"];
@@ -56,18 +60,22 @@ $lastname = $_SESSION["lastname"];
 </form>
 
 <?php
+// Sjekker om bruker har trykket på søk
 if(isset($_POST['search'])) {
 	$date = $_POST['date'];
 	$students = $_POST['students'];
 	$projector = $_POST['projector'];
+	// Kode brukt for å klargjøre spørring mot rom-tabellen
 	$sql = $db -> prepare ("SELECT * FROM rooms");
 	$sql->setFetchMode(PDO::FETCH_OBJ);
 	$sql -> execute();
 	if ($sql->rowCount() > 0) {
+		// Hvis spørringen under gir mer enn 0 resultater, kjøres den
 		$query = $db -> prepare ("SELECT * FROM rooms WHERE available = 'yes' AND (date = '$date') AND (students = '$students') AND (projector = '$projector')");
 		$query->setFetchMode(PDO::FETCH_OBJ);
 		$query -> execute();
 		if ($query->rowCount() == 0) {
+			// Hvis spørringen gir 0 resultater, kommer feilmeldiong
 			echo "<br>";
 			echo "<div id='logout'>Ingen ledige rom på valgt dato!</div>";
 		} else {
@@ -81,6 +89,7 @@ if(isset($_POST['search'])) {
 				echo "<br>";
 				echo "<div id='logout'>Rom nummer $roomid er ledig $date for $students studenter fra klokken $from til klokken $to. Prosjektor: $projector.</div>";
 				echo '<form action="" method="post">';
+				// Laget hidden values for å sende variabler videre til neste submit-knapp
 				echo "<input type='hidden' name='date' value='".$date."'>";
 				echo "<input type='hidden' name='roomid' value='".$roomid."'>";
 				echo "<input type='hidden' name='from_time' value='".$from."'>";
@@ -100,6 +109,7 @@ if(isset($_POST['search'])) {
 }
 
 if(isset($_POST['reserve'])) {
+	// Sjekker om bruker har trykket på reserver
 	$date = $_POST['date'];
 	$email = $_SESSION["epost"];
 	$roomid = $_POST['roomid'];
@@ -109,10 +119,12 @@ if(isset($_POST['reserve'])) {
 	$students = $_POST['students'];
 
 	try {
+		// Om bruker har trykket reserver og alt stemmer, kjøres spørringen under
 		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$sql = "INSERT INTO reservations (date, email, roomid, from_time, to_time, projector, students) 
 		VALUES ('$date', '$email', '$roomid', '$from', '$to', '$projector', '$students')";
 		$db->exec($sql);
+		// For å sette ledig rom til opptatt
 		$sql = "UPDATE rooms SET available = 'no' WHERE roomid = '$roomid'";
 		$db->exec($sql);
 		echo "<div id='logout'>Rom nummer $roomid reservert den $date for $email!</div>";
@@ -135,12 +147,13 @@ if(isset($_POST['reserve'])) {
 <div id="rooms">
 	<h2>Dine rom</h2> <br>
 	<?php
-
-	$email = $_SESSION["epost"]; 
+	$email = $_SESSION["email"];
+	// For å vise reserverte rom knyttet opp mot innlogget bruker 
 	$query = $db -> prepare("SELECT * FROM reservations WHERE email = '$email'");
 	$query->setFetchMode(PDO::FETCH_OBJ);
 	$query -> execute();
 	if ($query->rowCount() == 0) {
+		// Melding når ingen reservasjoner er knyttet opp mot innlogget bruker
 		echo "Ingen reservarsjoner funnet. Bruk søkefunksjonen over for å finne et ledig grupperom.";
 	} else {
 
