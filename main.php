@@ -12,7 +12,8 @@ if($_SESSION['auth_token']) {
 	ob_flush();
 }
 
-$_SESSION["epost"];
+$email = $_SESSION["epost"];
+echo "Velkommen, $email!";
 ?>
 
 <a href="logout.php"><p id="logout">Logg ut</p></a>
@@ -75,8 +76,8 @@ if(isset($_POST['search'])) {
 			echo '<form action="" method="post">';
 			echo "<input type='hidden' name='date' value='".$date."'>";
 			echo "<input type='hidden' name='roomid' value='".$roomid."'>";
-			echo "<input type='hidden' name='from_time' value='".$from_time."'>";
-			echo "<input type='hidden' name='to_time' value='".$to_time."'>";
+			echo "<input type='hidden' name='from_time' value='".$from."'>";
+			echo "<input type='hidden' name='to_time' value='".$to."'>";
 			echo "<input type='hidden' name='projector' value='".$projector."'>";
 			echo "<input type='hidden' name='students' value='".$students."'>";
 			echo " <input type='submit' name='reserve' value='Reserver'>";
@@ -124,9 +125,32 @@ if(isset($_POST['reserve'])) {
 	<a class="opener2" href="#">Se dine rom</a>
 </div>
 <div id="rooms">
-	<h2>(Eksempler)</h2> <br>
-	<p>Du reserverer rom 13 fra 12:00 til 14:00 den 24. Mars</p> <br>
-	<p>Du reserverer rom 2 fra 08:00 til 09:30 den 19. Mars</p>
+	<h2>Dine rom</h2> <br>
+	<?php
+		$email = $_SESSION["epost"];
+		$db = mysqli_connect("localhost", "root", "root", "pj2100");  
+		$query = mysqli_query($db, "SELECT * FROM reservations WHERE email = '$email'");
+
+		echo "<table>
+		<tr>
+		<th>Fornavn</th>
+		<th>Etternavn</th>
+		<th>Beskrivelse av øvelse</th>
+		<th>Nasjonalitet</th>
+		</tr>";
+
+		while($row = mysqli_fetch_array($query)) 
+		{
+			echo "<tr>";
+			echo "<td>" .$row['fornavn']. "</td>";
+			echo "<td>" .$row['etternavn']. "</td>";
+			echo "<td>" .$row['ovelse']. "</td>";
+			echo "<td>" .$row['nasjonalitet']. "</td>";
+			echo "</tr>";
+		}
+
+		echo "</table><br>";
+	?>
 </div>
 
 <div id="secondboxbot"></div>
