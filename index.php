@@ -1,6 +1,7 @@
 <?php
 session_start();
 ob_start();
+error_reporting(0);
 
 if($_SESSION['auth_token']) {
 	header("Location:main.php");
@@ -11,7 +12,7 @@ require_once 'libs/db.php';
 
 ?>
 
-<img src="images/textlogo.png" id="textlogo">
+<a href="index.php"><img src="images/textlogo.png" id="textlogo"></a>
 
 <!--<form id="wrap" action="" method="post" name="form">
 		<p>E-postadresse *</p>

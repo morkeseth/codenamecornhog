@@ -150,43 +150,11 @@ if(isset($_POST['reserve'])) {
 		echo "<td>" .$row['projector']. "</td>";
 		echo "<td>" .$row['students']. "</td>";
 		echo "<td>" .$row['date']. "</td>";
-		echo "<form action='' method='post'>";
-		echo "<input type='hidden' name='date' value='".$date."'>";
-		echo "<input type='hidden' name='roomid' value='".$roomid."'>";
-		echo "<input type='hidden' name='from_time' value='".$from."'>";
-		echo "<input type='hidden' name='to_time' value='".$to."'>";
-		echo "<input type='hidden' name='projector' value='".$projector."'>";
-		echo "<input type='hidden' name='students' value='".$students."'>";
-		echo "<input type='submit' name='delete' value='Slett'>";
-		echo "</form>";
 		echo "</tr>";
 	}
 
 	echo "</table><br>";
 
-	if(isset($_POST['delete'])) {
-		$date = $_POST['date'];
-		$email = $_SESSION["epost"];
-		$roomid = $_POST['roomid'];
-		$from = $_POST['from_time'];
-		$to = $_POST['to_time'];
-		$projector = $_POST['projector'];
-		$students = $_POST['students'];
-
-		try {
-			$conn = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
-			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "DELETE FROM reservations WHERE roomid = '$roomid'";
-			$conn->exec($sql);
-			echo "Record deleted successfully";
-		}
-		catch(PDOException $e)
-		{
-			echo $sql . "<br>" . $e->getMessage();
-		}
-
-		$conn = null;
-	} 
 	?>
 </div>
 

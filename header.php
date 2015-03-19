@@ -20,6 +20,6 @@
 
 	<body>
 		<header>
-			<img class="mainlogo" id="mainlogotop" src ="images/mainlogo.png">
+			<a href="index.php"><img class="mainlogo" id="mainlogotop" src ="images/mainlogo.png"></a>
 		</header>
 
