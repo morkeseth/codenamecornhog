@@ -54,6 +54,7 @@ require_once 'header.php';
 		} else { 
 			echo '<div id="feilmelding">Feil e-post eller passord!</div>'; 
 		}
+		$_SESSION["epost"] = $email;
 	}	
 
 	?>

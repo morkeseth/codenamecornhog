@@ -80,7 +80,7 @@ if(isset($_POST['search'])) {
 if(isset($_POST['reserve'])) {
 	echo '<form action="" method="post">';
 	echo "<input type=\"text\" name=\"date\" value=\"".$_POST['date']."\">"; 
-	$email = "morpat14@student.westerdals.no";
+	$email = $_SESSION["epost"];
 	$roomid = "10";
 	$from = "00:00:00";
 	$to = "00:00:00";
