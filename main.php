@@ -151,7 +151,7 @@ if(isset($_POST['reserve'])) {
 		<th>Til</th>
 		<th>Prosjektor</th>
 		<th>Studenter</th>
-		<th>Reservasjonsdato</th>
+		<th>Reservasjon</th>
 		</tr>";
 
 		while($row = $query->fetch(PDO::FETCH_ASSOC)) {

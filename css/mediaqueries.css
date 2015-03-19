@@ -1,189 +1,234 @@
 @media (max-width: 1920px) and (min-width: 1680px) {
-  .mainlogo {
-    height: 80px;
-  }
+.mainlogo {
+  height: 80px;
+}
 
-  #textlogo {
-    height: 80px;
-  }
+#textlogo {
+  height: 80px;
+}
 
-  #footerpic {
-    max-width: 1920px;
-    overflow: hidden;
-  }
+#footerpic {
+  max-width: 1920px;
+  overflow: hidden;
+}
 
-  #page1bot {
-  margin-top: 180px;
-  }
+#page1bot {
+margin-top: 180px;
+}
 }
 
 @media (max-width: 1680px) and (min-width: 1024px) {
-  .mainlogo {
-    height: 80px;
-  }
+.mainlogo {
+  height: 80px;
+}
 
-  #textlogo {
-    height: 80px;
-  }
+#textlogo {
+  height: 80px;
+}
 
-  #footerpic {
-    max-width: 1680px;
-    overflow: hidden;
-  }
+#footerpic {
+  max-width: 1680px;
+  overflow: hidden;
+}
 
-  #page1bot {
-  margin-top: 160px;
-  }
+#page1bot {
+margin-top: 160px;
+}
 }
 
 @media (max-width: 1024px) and (min-width: 860px) {
-  .mainlogo {
-    height: 75px;
-  }
+.mainlogo {
+  height: 75px;
+}
 
-  #textlogo {
-    height: 75px;
-  }
+#textlogo {
+  height: 75px;
+}
 
-  #footerpic {
-    max-width: 1024px;
-    overflow: hidden;
-  }
+#footerpic {
+  max-width: 1024px;
+  overflow: hidden;
+}
 
-  #page1bot {
-  margin-top: 140px;
-  }
+#page1bot {
+margin-top: 140px;
+}
 }
 
 @media (max-width: 860px) and (min-width: 640px) {
-  .mainlogo {
-    height: 75px;
-  }
+.mainlogo {
+  height: 75px;
+}
 
-  #textlogo {
-    height: 75px;
-  }
+#textlogo {
+  height: 75px;
+}
 
-  #footerpic {
-    max-width: 860px;
-    overflow: hidden;
-  }
+#footerpic {
+  max-width: 860px;
+  overflow: hidden;
+}
 
-  #page1bot {
-  margin-top: 120px;
-  }
+#page1bot {
+margin-top: 120px;
+}
 
-  .brukerinput {
-  width: 270px;
+.brukerinput {
+width: 270px;
+height: 40px;
+}
+
+#innloggingsform {
+width: 276px;
+}
+
+#submit {
+  width: 80px;
   height: 40px;
-  }
+  font-size: 10px;
+}
 
-  #innloggingsform {
+.bruker {
+font-size: 12px;
+}
+#feilmelding {
   width: 276px;
-  }
-
-  #submit {
-    width: 80px;
-    height: 40px;
-    font-size: 10px;
-  }
-
-  .bruker {
-  font-size: 12px;
-  }
-  #feilmelding {
-    width: 276px;
-    height: 25px;
-    padding-bottom: 0px;
-  }
+  height: 25px;
+  padding-bottom: 0px;
+}
 }
 
 @media (max-width: 640px) and (min-width: 480px) {
-  .mainlogo {
-    height: 70px;
-  }
+.mainlogo {
+  height: 70px;
+}
 
-  #textlogo {
-    height: 70px;
-  }
+#textlogo {
+  height: 70px;
+}
 
-  #footerpic {
-    max-width: 640px;
-    overflow: hidden;
-  }
+#footerpic {
+  max-width: 640px;
+  overflow: hidden;
+}
 
-  #page1bot {
-  margin-top: 100px;
-  }
+#page1bot {
+margin-top: 100px;
+}
 
-  .brukerinput {
-  width: 260px;
-  height: 35px;
-  }
+.brukerinput {
+width: 260px;
+height: 35px;
+}
 
-  #innloggingsform {
+#innloggingsform {
+width: 266px;
+}
+
+#submit {
+  width: 75px;
+  height: 40px;
+  font-size: 10px;
+}
+
+.bruker {
+font-size: 12px;
+}
+
+#feilmelding {
   width: 266px;
-  }
+  height: 20px;
+  padding-bottom: 5px;
+}
 
-  #submit {
-    width: 75px;
-    height: 40px;
-    font-size: 10px;
-  }
+#textbox {
+width: 220px;
+}
 
-  .bruker {
-  font-size: 12px;
-  }
+.mainbox2 {
+width: 330px;
+}
 
-  #feilmelding {
-    width: 266px;
-    height: 20px;
-    padding-bottom: 5px;
-  }
+#secondbox {
+width: 330px;
+}
+
+#secondboxbot {
+width: 330px;
+}
+
+#logoutbutton {
+  height: 23px;
+  width: 86px;
+  font-size: 11px;
+}
+
 }
 
 @media (max-width: 480px) and (min-width: 0px) {
-  .mainlogo {
-    height: 70px;
-  }
+.mainlogo {
+  height: 70px;
+}
 
-  #textlogo {
-    height: 70px;
-  }
+#textlogo {
+  height: 70px;
+}
 
-  #footerpic {
-    max-width: 480px;
-    overflow: hidden;
-  }
+#footerpic {
+  max-width: 480px;
+  overflow: hidden;
+}
 
-  #page1bot {
-  margin-top: 80px;
-  }
+#page1bot {
+margin-top: 80px;
+}
 
-  .brukerinput {
-  width: 260px;
+.brukerinput {
+width: 260px;
+height: 30px;
+}
+
+#innloggingsform {
+width: 266px;
+}
+
+#submit {
+  width: 60px;
   height: 30px;
-  }
+  font-size: 10px;
 
-  #innloggingsform {
+}
+
+.bruker {
+font-size: 12px;
+}
+
+#feilmelding {
   width: 266px;
-  }
+  height: 20px;
+  padding-bottom: 5px;
+}
 
-  #submit {
-    width: 60px;
-    height: 30px;
-    font-size: 10px;
+#textbox {
+width: 200px;
+}
 
-  }
+.mainbox2 {
+width: 300px;
+}
 
-  .bruker {
-  font-size: 12px;
-  }
+#secondbox {
+width: 300px;
+}
 
-  #feilmelding {
-    width: 266px;
-    height: 20px;
-    padding-bottom: 5px;
-  }
+#secondboxbot {
+width: 300px;
+}
+
+#logoutbutton {
+  height: 20px;
+  width: 80px;
+  font-size: 10px;
+}
 
 }
