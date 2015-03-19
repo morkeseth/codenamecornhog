@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Tabellstruktur for tabell `reservations`
 --
+CREATE DATABASE IF NOT EXISTS pj2100;
+USE pj2100;
 
 CREATE TABLE `reservations` (
 `id` int(10) NOT NULL,
@@ -34,14 +36,6 @@ CREATE TABLE `reservations` (
 --
 -- Dataark for tabell `reservations`
 --
-
-INSERT INTO `reservations` (`id`, `date`, `email`, `roomid`, `from_time`, `to_time`, `projector`, `students`) VALUES
-(1, '0000-00-00', 'morpat14@student.westerdals.no', 0, '00:00:00', '00:00:00', '', 0),
-(2, '0000-00-00', 'morpat14@student.westerdals.no', 0, '00:00:00', '00:00:00', '', 0),
-(3, '2015-03-19', 'morpat14@student.westerdals.no', 1, '00:00:00', '00:00:00', 'ja', 2),
-(4, '2015-03-19', 'morpat14@student.westerdals.no', 4, '00:00:00', '00:00:00', 'ja', 3),
-(5, '2015-03-19', 'morpat14@student.westerdals.no', 4, '00:00:00', '00:00:00', 'ja', 3),
-(6, '2015-03-19', 'morpat14@student.westerdals.no', 4, '00:00:00', '00:00:00', 'ja', 3);
 
 --
 -- Indexes for dumped tables
@@ -175,7 +169,7 @@ INSERT INTO `students` (`id`, `lastname`, `firstname`, `email`, `password`) VALU
 (702220, 'Nguyen', 'Dang Cong', 'ngudan14@student.westerdals.no', 123),
 (777777, 'Palpatine', 'Sheev', 'palshe14@student.westerdals.no', 123),
 (888888, 'Nawa', 'Hushu', 'nawhus14@student.westerdals.no', 123),
-(999999, 'Dua Bake', 'Txana Bane', 'duatxa14@student.westerdals.no', 123);
+(999999, 'Dua Bake', 'Txana Bane', 'duatxa14@student.westerdals.no', 123),
 (123456, 'Test', 'Test', 'test@student.westerdals.no', 123);
 
 --
