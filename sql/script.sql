@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.2.10
 -- http://www.phpmyadmin.net
 --
@@ -176,6 +176,7 @@ INSERT INTO `students` (`id`, `lastname`, `firstname`, `email`, `password`) VALU
 (777777, 'Palpatine', 'Sheev', 'palshe14@student.westerdals.no', 123),
 (888888, 'Nawa', 'Hushu', 'nawhus14@student.westerdals.no', 123),
 (999999, 'Dua Bake', 'Txana Bane', 'duatxa14@student.westerdals.no', 123);
+(123456, 'Test', 'Test', 'testes14@student.westerdals.no', 123);
 
 --
 -- Indexes for dumped tables
