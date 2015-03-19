@@ -10,6 +10,8 @@ if($_SESSION['auth_token']) {
 	header("Location:index.php");
 	ob_flush();
 }
+
+$_SESSION["epost"];
 ?>
 
 <a href="logout.php"><p id="logout">Logg ut</p></a>
@@ -58,6 +60,9 @@ if(isset($_POST['search'])) {
 		$query = $db -> prepare ("SELECT * FROM rooms WHERE available = 'yes' AND (date = '$date') AND (students = '$students') AND (projector = '$projector')");
 		$query->setFetchMode(PDO::FETCH_OBJ);
 		$query -> execute();
+		if ($query->rowCount() == 0) {
+			echo "Ingen ledige rom på valgt dato!";
+		} else {
 		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 			$roomid = $row['roomid'];
 			$date = $row['date'];
@@ -67,26 +72,32 @@ if(isset($_POST['search'])) {
 			echo '<div class="mainbox mainbox2">';
 			echo "<br>";
 			echo "<b>Rom nummer $roomid er ledig $date for $students studenter fra klokken $from til klokken $to. Prosjektor: $projector.</b>";
-			echo '<form method="post">';
+			echo '<form action="" method="post">';
+			echo "<input type='hidden' name='date' value='".$date."'>";
+			echo "<input type='hidden' name='roomid' value='".$roomid."'>";
+			echo "<input type='hidden' name='from_time' value='".$from_time."'>";
+			echo "<input type='hidden' name='to_time' value='".$to_time."'>";
+			echo "<input type='hidden' name='projector' value='".$projector."'>";
+			echo "<input type='hidden' name='students' value='".$students."'>";
 			echo " <input type='submit' name='reserve' value='Reserver'>";
 			echo '</form>';
 			echo '</div>';
+		}
 		}		
 	} else { 
-		echo "Ingen ledige rom på valgt dato!"; 
+
+		echo "En feil oppstod!"; 
 	}	
 }
 
 if(isset($_POST['reserve'])) {
-	echo '<form action="" method="post">';
-	echo "<input type=\"text\" name=\"date\" value=\"".$_POST['date']."\">"; 
+	$date = $_POST['date'];
 	$email = $_SESSION["epost"];
-	$roomid = "10";
-	$from = "00:00:00";
-	$to = "00:00:00";
-	$projector = "yes";
-	$students = "2";
-	echo '</form>';
+	$roomid = $_POST['roomid'];
+	$from = $_POST['from_time'];
+	$to = $_POST['to_time'];
+	$projector = $_POST['projector'];
+	$students = $_POST['students'];
 
 	try {
     $db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
@@ -95,6 +106,8 @@ if(isset($_POST['reserve'])) {
     $sql = "INSERT INTO reservations (date, email, roomid, from_time, to_time, projector, students) 
     VALUES ('$date', '$email', '$roomid', '$from', '$to', '$projector', '$students')";
     // use exec() because no results are returned
+    $db->exec($sql);
+    $sql = "UPDATE rooms SET available = 'no' WHERE roomid = '$roomid'";
     $db->exec($sql);
     echo "Rom nummer $roomid reservert den $date for $email!";
     }
