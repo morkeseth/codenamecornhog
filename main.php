@@ -157,7 +157,7 @@ if(isset($_POST['reserve'])) {
 		echo "Ingen reservarsjoner funnet. Bruk søkefunksjonen over for å finne et ledig grupperom.";
 	} else {
 
-		echo "<table>
+		echo "<table id='showrooms'>
 		<tr>
 		<th>Rom</th>
 		<th>Fra</th>
