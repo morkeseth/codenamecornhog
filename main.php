@@ -18,7 +18,7 @@ $lastname = $_SESSION["lastname"];
 ?>
 
 <form id="logout" action="logout.php" method="post">
-	<input id="submit" type="submit" value="Logg ut" name="logout">
+	<input id="logoutbutton" type="submit" value="Logg ut" name="logout">
 </form><br>
 <?php echo "<div id='logout'>Velkommen,	$firstname $lastname!</div>"; ?>
 
@@ -49,7 +49,9 @@ $lastname = $_SESSION["lastname"];
 	<br>
 	<input type="radio" name="projector" value="nei" required>Nei
 
-	<p><input type="submit" value="Søk" name="search"></p>
+	<p><form id="logout" action="logout.php" method="post">
+	<input id="logoutbutton" type="submit" value="Søk" name="search">
+</form></p>
 
 </form>
 
@@ -77,7 +79,7 @@ if(isset($_POST['search'])) {
 				$to = $row['to_time'];
 				echo '<div class="mainbox mainbox2">';
 				echo "<br>";
-				echo "<b>Rom nummer $roomid er ledig $date for $students studenter fra klokken $from til klokken $to. Prosjektor: $projector.</b>";
+				echo "<div id='logout'>Rom nummer $roomid er ledig $date for $students studenter fra klokken $from til klokken $to. Prosjektor: $projector.</div>";
 				echo '<form action="" method="post">';
 				echo "<input type='hidden' name='date' value='".$date."'>";
 				echo "<input type='hidden' name='roomid' value='".$roomid."'>";
@@ -85,8 +87,9 @@ if(isset($_POST['search'])) {
 				echo "<input type='hidden' name='to_time' value='".$to."'>";
 				echo "<input type='hidden' name='projector' value='".$projector."'>";
 				echo "<input type='hidden' name='students' value='".$students."'>";
-				echo " <input type='submit' name='reserve' value='Reserver'>";
-				echo '</form>';
+				echo "<form id='logout' action='' method='post'>";
+				echo "<input id='logoutbutton' type='submit' value='Reserver' name='reserve'>";
+				echo "</form><br>";
 				echo '</div>';
 			}
 		}		
@@ -112,7 +115,7 @@ if(isset($_POST['reserve'])) {
 		$db->exec($sql);
 		$sql = "UPDATE rooms SET available = 'no' WHERE roomid = '$roomid'";
 		$db->exec($sql);
-		echo "Rom nummer $roomid reservert den $date for $email!";
+		echo "<div id='logout'>Rom nummer $roomid reservert den $date for $email!</div>";
 	}
 
 	catch(PDOException $e) {
@@ -127,7 +130,7 @@ if(isset($_POST['reserve'])) {
 <div id="firstbot" class="mainbox mainbox2"></div>
 
 <div id="secondbox">
-	<a class="opener2" href="#">Se dine rom</a>
+	<a id="roomopener" class="opener2" href="#">Vis/skjul reservasjoner</a>
 </div>
 <div id="rooms">
 	<h2>Dine rom</h2> <br>
@@ -170,7 +173,7 @@ if(isset($_POST['reserve'])) {
 </div>
 
 <div id="secondboxbot"></div>
-
+<br>
 <script>
 $(document).ready(function(){
 	$(".opener").click(function(){

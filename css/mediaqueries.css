@@ -93,7 +93,8 @@
   }
   #feilmelding {
     width: 276px;
-    height: 40px;
+    height: 25px;
+    padding-bottom: 0px;
   }
 }
 
@@ -136,7 +137,8 @@
 
   #feilmelding {
     width: 266px;
-    height: 30px;
+    height: 20px;
+    padding-bottom: 5px;
   }
 }
 
@@ -180,7 +182,8 @@
 
   #feilmelding {
     width: 266px;
-    height: 30px;
+    height: 20px;
+    padding-bottom: 5px;
   }
 
 }
