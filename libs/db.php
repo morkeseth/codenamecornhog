@@ -1,5 +1,5 @@
 <?php
-$db = new PDO("localhost", "root", "root", "pj2100");
+$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
 
 if(!$db) {
     echo "Feil på tilkobling.";

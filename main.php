@@ -3,6 +3,7 @@ session_start();
 ob_start();
 
 require_once 'header.php';
+require_once 'libs/db.php';
 
 if($_SESSION['auth_token']) {
 	echo "";
@@ -52,7 +53,7 @@ if(isset($_POST['search'])) {
 	$date = $_POST['date'];
 	$students = $_POST['students'];
 	$projector = $_POST['projector'];
-	$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
+	//$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
 	$sql = $db -> prepare ("SELECT * FROM rooms");
 	$sql->setFetchMode(PDO::FETCH_OBJ);
 	$sql -> execute();
@@ -100,12 +101,10 @@ if(isset($_POST['reserve'])) {
 	$students = $_POST['students'];
 
 	try {
-    $db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
-    // set the PDO error mode to exception
+    //$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $sql = "INSERT INTO reservations (date, email, roomid, from_time, to_time, projector, students) 
     VALUES ('$date', '$email', '$roomid', '$from', '$to', '$projector', '$students')";
-    // use exec() because no results are returned
     $db->exec($sql);
     $sql = "UPDATE rooms SET available = 'no' WHERE roomid = '$roomid'";
     $db->exec($sql);
