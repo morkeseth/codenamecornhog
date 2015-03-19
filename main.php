@@ -2,6 +2,7 @@
 // Starte session for å sjekke at bruker er innlogget og for å bruke variabler fra forrige side
 session_start();
 ob_start();
+error_reporting(0);
 
 // Inkluderer header og databasekonfigurasjon
 require_once 'header.php';
@@ -77,7 +78,7 @@ if(isset($_POST['search'])) {
 		if ($query->rowCount() == 0) {
 			// Hvis spørringen gir 0 resultater, kommer feilmeldiong
 			echo "<br>";
-			echo "<div id='logout'>Ingen ledige rom på valgt dato!</div>";
+			echo "<div id='logout'>Ingen ledige rom som matcher dine kriterier, prøv igjen.</div>";
 		} else {
 			while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
 				$roomid = $row['roomid'];
@@ -111,7 +112,7 @@ if(isset($_POST['search'])) {
 if(isset($_POST['reserve'])) {
 	// Sjekker om bruker har trykket på reserver
 	$date = $_POST['date'];
-	$email = $_SESSION["epost"];
+	$email = $_SESSION["email"];
 	$roomid = $_POST['roomid'];
 	$from = $_POST['from_time'];
 	$to = $_POST['to_time'];
