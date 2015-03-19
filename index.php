@@ -14,16 +14,6 @@ require_once 'libs/db.php';
 
 <a href="index.php"><img src="images/textlogo.png" id="textlogo"></a>
 
-<!--<form id="wrap" action="" method="post" name="form">
-		<p>E-postadresse *</p>
-		<input class="brukerinput" type="email" name="email" required placeholder="E-postadresse">
-
-		<p>Passord *</p>
-		<input class="brukerinput" type="password" name="password" required placeholder="Passord"><br>
-
-		<input id="submit" type="submit" value="Logg inn" name="login">
-</form>-->
-
 <div id="formwrapper">
 <form id="innloggingsform" action="" method="post" name="form">	
 	
@@ -41,22 +31,27 @@ require_once 'libs/db.php';
 
 
 <?php
+	// Sjekker om bruker har trykket logg inn
 	if(isset($_POST['login'])) {
 		$_SESSION['auth_token'] = false;
 		$email = $_POST['email'];
 		$password = $_POST['password'];
+		// Sjekker om e-post og passord som er skrevet inn stemmer overens med data i databasen
 		$sql = $db -> prepare ("SELECT * FROM students WHERE (email = '$email') AND (password = '$password')");
 		$sql->setFetchMode(PDO::FETCH_OBJ);
 		$sql -> execute();
-		$resultat = $sql; 
+		$resultat = $sql;
+		// Hvis e-post og passord stemmer, blir bruker sendt til main.php 
 		if ($sql->rowCount() > 0) {
 			$_SESSION['auth_token'] = true;
 			header("Location: main.php");
 			ob_flush();
 		} else { 
+			// Feilmelding hvis e-post eller passord ikke stemmer overens med data i databasen
 			echo '<div id="feilmelding">Feil e-post eller passord!</div>'; 
 		}
-		$_SESSION["epost"] = $email;
+		// Oppretter sessionvariabler for bruk i main.php
+		$_SESSION["email"] = $email;
 		while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
 		$firstname = $row['firstname'];
 		$lastname = $row['lastname'];
