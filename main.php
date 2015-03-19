@@ -12,7 +12,7 @@ if($_SESSION['auth_token']) {
 	ob_flush();
 }
 
-$email = $_SESSION["epost"];
+$email = $_SESSION["email"];
 $firstname = $_SESSION["firstname"];
 $lastname = $_SESSION["lastname"];
 ?>
