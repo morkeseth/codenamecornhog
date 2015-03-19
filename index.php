@@ -7,6 +7,8 @@ if($_SESSION['auth_token']) {
 }
 
 require_once 'header.php';
+require_once 'libs/db.php';
+
 ?>
 
 <img src="images/textlogo.png" id="textlogo">
@@ -42,7 +44,6 @@ require_once 'header.php';
 		$_SESSION['auth_token'] = false;
 		$email = $_POST['email'];
 		$password = $_POST['password'];
-		$db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
 		$sql = $db -> prepare ("SELECT * FROM students WHERE (email = '$email') AND (password = '$password')");
 		$sql->setFetchMode(PDO::FETCH_OBJ);
 		$sql -> execute();
@@ -61,4 +62,3 @@ require_once 'header.php';
 
 <div id="page1bot"><div> 
 <?php require_once 'footer.php';?>
-
