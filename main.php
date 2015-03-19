@@ -13,11 +13,12 @@ if($_SESSION['auth_token']) {
 }
 
 $email = $_SESSION["epost"];
-
+$firstname = $_SESSION["firstname"];
+$lastname = $_SESSION["lastname"];
 ?>
 
 <a href="logout.php"><p id="logout">Logg ut</p></a>
-<?php echo "<div id='logout'>Velkommen, $email!</div>"; ?>
+<?php echo "<div id='logout'>Velkommen,	$firstname $lastname!</div>"; ?>
 
 
 <div id="firstbox" class="mainbox mainbox2">

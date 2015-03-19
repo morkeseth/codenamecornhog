@@ -57,6 +57,12 @@ require_once 'libs/db.php';
 			echo '<div id="feilmelding">Feil e-post eller passord!</div>'; 
 		}
 		$_SESSION["epost"] = $email;
+		while ($row = $sql->fetch(PDO::FETCH_ASSOC)) {
+		$firstname = $row['firstname'];
+		$lastname = $row['lastname'];
+		$_SESSION["firstname"] = $firstname;
+		$_SESSION["lastname"] = $lastname;
+		}
 	}	
 
 	?>
