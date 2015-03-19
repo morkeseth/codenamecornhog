@@ -1,12 +1,15 @@
 <?php
+// Starte session for innlogging og bruk av variabler senere
 session_start();
 ob_start();
 error_reporting(0);
 
+// Om bruker allerede er innlogget, blir h*n sendt tilbake til main.php
 if($_SESSION['auth_token']) {
 	header("Location:main.php");
 }
 
+// Inkluderer header og databasekonfigurasjon
 require_once 'header.php';
 require_once 'libs/db.php';
 
