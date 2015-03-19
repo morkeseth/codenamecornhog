@@ -127,34 +127,40 @@ if(isset($_POST['reserve'])) {
 <div id="rooms">
 	<h2>Dine rom</h2> <br>
 	<?php
-	$email = $_SESSION["epost"];
-	$db = mysqli_connect("localhost", "root", "root", "pj2100");  
-	$query = mysqli_query($db, "SELECT * FROM reservations WHERE email = '$email'");
 
-	echo "<table>
-	<tr>
-	<th>Rom</th>
-	<th>Fra</th>
-	<th>Til</th>
-	<th>Prosjektor</th>
-	<th>Studenter</th>
-	<th>Reservasjonsdato</th>
-	</tr>";
+	$email = $_SESSION["epost"]; 
+	$query = $db -> prepare("SELECT * FROM reservations WHERE email = '$email'");
+	$query->setFetchMode(PDO::FETCH_OBJ);
+	$query -> execute();
+	if ($query->rowCount() == 0) {
+		echo "Ingen reservarsjoner funnet. Bruk søkefunksjonen over for å finne et ledig grupperom.";
+	} else {
 
-	while($row = mysqli_fetch_array($query)) 
-	{
-		echo "<tr>";
-		echo "<td>" .$row['roomid']. "</td>";
-		echo "<td>" .$row['from_time']. "</td>";
-		echo "<td>" .$row['to_time']. "</td>";
-		echo "<td>" .$row['projector']. "</td>";
-		echo "<td>" .$row['students']. "</td>";
-		echo "<td>" .$row['date']. "</td>";
-		echo "</tr>";
+		echo "<table>
+		<tr>
+		<th>Rom</th>
+		<th>Fra</th>
+		<th>Til</th>
+		<th>Prosjektor</th>
+		<th>Studenter</th>
+		<th>Reservasjonsdato</th>
+		</tr>";
+
+		while($row = $query->fetch(PDO::FETCH_ASSOC)) {
+			echo "<tr>";
+			echo "<td>" .$row['roomid']. "</td>";
+			echo "<td>" .$row['from_time']. "</td>";
+			echo "<td>" .$row['to_time']. "</td>";
+			echo "<td>" .$row['projector']. "</td>";
+			echo "<td>" .$row['students']. "</td>";
+			echo "<td>" .$row['date']. "</td>";
+			echo "</tr>";
+
+		}
 	}
 
 	echo "</table><br>";
-
+	
 	?>
 </div>
 
