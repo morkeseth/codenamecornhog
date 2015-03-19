@@ -13,6 +13,7 @@ if($_SESSION['auth_token']) {
 }
 
 $email = $_SESSION["epost"];
+
 ?>
 
 <a href="logout.php"><p id="logout">Logg ut</p></a>
