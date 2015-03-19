@@ -17,7 +17,9 @@ $firstname = $_SESSION["firstname"];
 $lastname = $_SESSION["lastname"];
 ?>
 
-<a href="logout.php"><p id="logout">Logg ut</p></a>
+<form id="logout" action="logout.php" method="post">
+	<input id="submit" type="submit" value="Logg ut" name="logout">
+</form><br>
 <?php echo "<div id='logout'>Velkommen,	$firstname $lastname!</div>"; ?>
 
 
