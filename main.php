@@ -27,19 +27,19 @@ if($_SESSION['auth_token']) {
 <form id="calendar" action="" method="post">
 
 	<p>Velg dato:</p>
-	<input type="date" name="date">
+	<input type="date" name="date" required>
 
 	<p>Antall studenter:</p>
-	<select name="students">
+	<select name="students" required>
 		<option value="2">2</option>
 		<option value="3">3</option>
 		<option value="4">4</option>
 	</select>
 
 	<p>Prosjektor eller ikke?</p>
-	<input type="radio" name="projector" value="yes" required>Ja
+	<input type="radio" name="projector" value="ja" required>Ja
 	<br>
-	<input type="radio" name="projector" value="no" required>Nei
+	<input type="radio" name="projector" value="nei" required>Nei
 
 	<p><input type="submit" value="Søk" name="search"></p>
 
@@ -67,7 +67,9 @@ if(isset($_POST['search'])) {
 			echo '<div class="mainbox mainbox2">';
 			echo "<br>";
 			echo "<b>Rom nummer $roomid er ledig $date for $students studenter fra klokken $from til klokken $to. Prosjektor: $projector.</b>";
-			echo " <form method='post'><input type='submit' name='reserve' value='Reserver'></form>";
+			echo '<form method="post">';
+			echo " <input type='submit' name='reserve' value='Reserver'>";
+			echo '</form>';
 			echo '</div>';
 		}		
 	} else { 
@@ -76,13 +78,15 @@ if(isset($_POST['search'])) {
 }
 
 if(isset($_POST['reserve'])) {
-	$date = "2015-03-18";
+	echo '<form action="" method="post">';
+	echo "<input type=\"text\" name=\"date\" value=\"".$_POST['date']."\">"; 
 	$email = "morpat14@student.westerdals.no";
 	$roomid = "10";
 	$from = "00:00:00";
 	$to = "00:00:00";
 	$projector = "yes";
 	$students = "2";
+	echo '</form>';
 
 	try {
     $db = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");

@@ -1,3 +1,7 @@
+body {
+	font-family: Helvetica;
+}
+
 html, body {
     overflow-x: hidden !important;
     position: relative !important;
@@ -14,7 +18,6 @@ html, body {
 	background-color: #FD7265;
 	margin-right: auto;
 	margin-left: auto;
-	font-family: Verdana;
 }
 
 #greenmessage {
@@ -26,7 +29,6 @@ html, body {
 	height: 35px;
 	margin-right: auto;
 	margin-left: auto;
-	font-family: Verdana;
 }
 
 #calendar {
@@ -62,7 +64,6 @@ html, body {
 /*Page 1 classes*/
 .bruker {
 	font-size: 18px;
-	font-family: Verdana;
 	text-align: left;
 } 
 
@@ -76,12 +77,10 @@ html, body {
 }
 .brukerinput[type="email"] {
 	font-size: 18px;
-	font-family: Verdana;
 }
 
 .brukerinput[type="password"] {
 	font-size: 18px;
-	font-family: verdana;
 }
 
 /*Page 1 id's*/
@@ -109,7 +108,6 @@ html, body {
 	width: 120px;
 	border: solid 3px black;
 	font-size: 18px;
-	font-family: Verdana;
 	-webkit-transition: background-color 0.5s, color 0.5s;
 	position: relative;
 	right: 0px;
