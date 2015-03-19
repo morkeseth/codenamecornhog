@@ -13,10 +13,10 @@ if($_SESSION['auth_token']) {
 }
 
 $email = $_SESSION["epost"];
-echo "Velkommen, $email!";
 ?>
 
 <a href="logout.php"><p id="logout">Logg ut</p></a>
+<?php echo "<div id='logout'>Velkommen, $email!</div>"; ?>
 
 
 <div id="firstbox" class="mainbox mainbox2">
@@ -64,26 +64,26 @@ if(isset($_POST['search'])) {
 		if ($query->rowCount() == 0) {
 			echo "Ingen ledige rom på valgt dato!";
 		} else {
-		while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
-			$roomid = $row['roomid'];
-			$date = $row['date'];
-			$students = $row['students'];
-			$from = $row['from_time'];
-			$to = $row['to_time'];
-			echo '<div class="mainbox mainbox2">';
-			echo "<br>";
-			echo "<b>Rom nummer $roomid er ledig $date for $students studenter fra klokken $from til klokken $to. Prosjektor: $projector.</b>";
-			echo '<form action="" method="post">';
-			echo "<input type='hidden' name='date' value='".$date."'>";
-			echo "<input type='hidden' name='roomid' value='".$roomid."'>";
-			echo "<input type='hidden' name='from_time' value='".$from."'>";
-			echo "<input type='hidden' name='to_time' value='".$to."'>";
-			echo "<input type='hidden' name='projector' value='".$projector."'>";
-			echo "<input type='hidden' name='students' value='".$students."'>";
-			echo " <input type='submit' name='reserve' value='Reserver'>";
-			echo '</form>';
-			echo '</div>';
-		}
+			while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+				$roomid = $row['roomid'];
+				$date = $row['date'];
+				$students = $row['students'];
+				$from = $row['from_time'];
+				$to = $row['to_time'];
+				echo '<div class="mainbox mainbox2">';
+				echo "<br>";
+				echo "<b>Rom nummer $roomid er ledig $date for $students studenter fra klokken $from til klokken $to. Prosjektor: $projector.</b>";
+				echo '<form action="" method="post">';
+				echo "<input type='hidden' name='date' value='".$date."'>";
+				echo "<input type='hidden' name='roomid' value='".$roomid."'>";
+				echo "<input type='hidden' name='from_time' value='".$from."'>";
+				echo "<input type='hidden' name='to_time' value='".$to."'>";
+				echo "<input type='hidden' name='projector' value='".$projector."'>";
+				echo "<input type='hidden' name='students' value='".$students."'>";
+				echo " <input type='submit' name='reserve' value='Reserver'>";
+				echo '</form>';
+				echo '</div>';
+			}
 		}		
 	} else { 
 
@@ -101,18 +101,18 @@ if(isset($_POST['reserve'])) {
 	$students = $_POST['students'];
 
 	try {
-    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO reservations (date, email, roomid, from_time, to_time, projector, students) 
-    VALUES ('$date', '$email', '$roomid', '$from', '$to', '$projector', '$students')";
-    $db->exec($sql);
-    $sql = "UPDATE rooms SET available = 'no' WHERE roomid = '$roomid'";
-    $db->exec($sql);
-    echo "Rom nummer $roomid reservert den $date for $email!";
-    }
+		$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$sql = "INSERT INTO reservations (date, email, roomid, from_time, to_time, projector, students) 
+		VALUES ('$date', '$email', '$roomid', '$from', '$to', '$projector', '$students')";
+		$db->exec($sql);
+		$sql = "UPDATE rooms SET available = 'no' WHERE roomid = '$roomid'";
+		$db->exec($sql);
+		echo "Rom nummer $roomid reservert den $date for $email!";
+	}
 
 	catch(PDOException $e) {
-    	echo $sql . "<br>" . $e->getMessage();
-    }
+		echo $sql . "<br>" . $e->getMessage();
+	}
 
 	$conn = null;
 } 
@@ -127,29 +127,66 @@ if(isset($_POST['reserve'])) {
 <div id="rooms">
 	<h2>Dine rom</h2> <br>
 	<?php
+	$email = $_SESSION["epost"];
+	$db = mysqli_connect("localhost", "root", "root", "pj2100");  
+	$query = mysqli_query($db, "SELECT * FROM reservations WHERE email = '$email'");
+
+	echo "<table>
+	<tr>
+	<th>Rom</th>
+	<th>Fra</th>
+	<th>Til</th>
+	<th>Prosjektor</th>
+	<th>Studenter</th>
+	<th>Reservasjonsdato</th>
+	</tr>";
+
+	while($row = mysqli_fetch_array($query)) 
+	{
+		echo "<tr>";
+		echo "<td>" .$row['roomid']. "</td>";
+		echo "<td>" .$row['from_time']. "</td>";
+		echo "<td>" .$row['to_time']. "</td>";
+		echo "<td>" .$row['projector']. "</td>";
+		echo "<td>" .$row['students']. "</td>";
+		echo "<td>" .$row['date']. "</td>";
+		echo "<form action='' method='post'>";
+		echo "<input type='hidden' name='date' value='".$date."'>";
+		echo "<input type='hidden' name='roomid' value='".$roomid."'>";
+		echo "<input type='hidden' name='from_time' value='".$from."'>";
+		echo "<input type='hidden' name='to_time' value='".$to."'>";
+		echo "<input type='hidden' name='projector' value='".$projector."'>";
+		echo "<input type='hidden' name='students' value='".$students."'>";
+		echo "<input type='submit' name='delete' value='Slett'>";
+		echo "</form>";
+		echo "</tr>";
+	}
+
+	echo "</table><br>";
+
+	if(isset($_POST['delete'])) {
+		$date = $_POST['date'];
 		$email = $_SESSION["epost"];
-		$db = mysqli_connect("localhost", "root", "root", "pj2100");  
-		$query = mysqli_query($db, "SELECT * FROM reservations WHERE email = '$email'");
+		$roomid = $_POST['roomid'];
+		$from = $_POST['from_time'];
+		$to = $_POST['to_time'];
+		$projector = $_POST['projector'];
+		$students = $_POST['students'];
 
-		echo "<table>
-		<tr>
-		<th>Fornavn</th>
-		<th>Etternavn</th>
-		<th>Beskrivelse av øvelse</th>
-		<th>Nasjonalitet</th>
-		</tr>";
-
-		while($row = mysqli_fetch_array($query)) 
+		try {
+			$conn = new PDO("mysql:host=localhost;dbname=pj2100", "root", "root");
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$sql = "DELETE FROM reservations WHERE roomid = '$roomid'";
+			$conn->exec($sql);
+			echo "Record deleted successfully";
+		}
+		catch(PDOException $e)
 		{
-			echo "<tr>";
-			echo "<td>" .$row['fornavn']. "</td>";
-			echo "<td>" .$row['etternavn']. "</td>";
-			echo "<td>" .$row['ovelse']. "</td>";
-			echo "<td>" .$row['nasjonalitet']. "</td>";
-			echo "</tr>";
+			echo $sql . "<br>" . $e->getMessage();
 		}
 
-		echo "</table><br>";
+		$conn = null;
+	} 
 	?>
 </div>
 
